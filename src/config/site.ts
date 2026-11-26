@@ -178,6 +178,11 @@ export const capabilitySlideOverrides: Record<number, CapabilitySlide[]> = {
       src: '/videos/microled/kp-series-microled.mp4',
       poster: '/images/case-videos/microled-cover.webp',
       label: 'KP Series Micro-LED 投影镜头宣传片'
+    },
+    {
+      src: '/videos/gobo/3855-gobo-20.mp4',
+      poster: '/images/case-videos/gobo-cover.webp',
+      label: '3855 内外置 gobo 版 2.0 产品演示'
     }
   ]
 };
