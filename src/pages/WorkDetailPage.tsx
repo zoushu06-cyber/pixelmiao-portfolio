@@ -167,9 +167,8 @@ export default function WorkDetailPage() {
               </div>
             );
           })}
-          {[710, 1280, 1850].map(x => (
-            <div className="wd-line-v" key={x} style={at(x, 354, 1, 380)} />
-          ))}
+          {/* 只保留中间的十字分隔：一条竖线 + 一条横线 */}
+          <div className="wd-line-v" style={at(1280, 354, 1, 380)} />
           <div className="wd-line" style={at(141, 542, 2279, 1)} />
 
           {/* 底部原型缩略卡（5 张）*/}
