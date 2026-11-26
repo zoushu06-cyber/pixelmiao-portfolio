@@ -76,7 +76,7 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
   ],
   // CASE 03 / 线下专柜、展会展览视觉设计：KEENYODA 展台三视图（画板 17）
   2: ['/images/capability-slides/exhibition-01.jpg'],
-  // CASE 04 / 品牌海报、主题 KV：6 张品牌海报，顺序按用户给定（海报 06 / 01 / 02 / 03 / 04 / 05）
+  // CASE 04 / 品牌海报：6 张品牌海报，顺序按用户给定（海报 06 / 01 / 02 / 03 / 04 / 05）
   3: [
     '/images/capability-slides/brand-poster-01.jpg',
     '/images/capability-slides/brand-poster-02.jpg',
@@ -84,6 +84,18 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/brand-poster-04.jpg',
     '/images/capability-slides/brand-poster-05.jpg',
     '/images/capability-slides/brand-poster-06.jpg'
+  ],
+  // CASE 05 / 主题 KV 视觉：会议接待主视觉 3 版（深蓝金 / 红金 / 蓝白）
+  4: [
+    '/images/capability-slides/kv-01.jpg',
+    '/images/capability-slides/kv-02.jpg',
+    '/images/capability-slides/kv-03.jpg'
+  ],
+  // CASE 06 / 字体设计：3 组字形提案（奔赴好时光 / 夏日终章 / 在野生活）
+  5: [
+    '/images/capability-slides/type-design-01.jpg',
+    '/images/capability-slides/type-design-02.jpg',
+    '/images/capability-slides/type-design-03.png'
   ]
 };
 
@@ -96,7 +108,7 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
 export const caseGallery = {
   /** 标题栏文案：与能力清单同一模板，由代码渲染（早期图片贴图 vi-title-bar.jpg 已弃用） */
   titleBarText: {
-    eyebrow: 'CASE 06 / 平面落地',
+    eyebrow: '作品案例 / 平面落地',
     title: '品牌 VI 视觉系统',
     sub: '版式・印前・电商',
     desc: '图在屏幕上好看不算完，落到纸上不塌、上传到国际站不被压暗，才算做完。专色与烫印的位置、纸张的克重、详情页的阅读顺序，都在这一个环节里对齐。',
@@ -233,8 +245,8 @@ export const site = {
   },
 
   /**
-   * 能力清单 —— 对应即时设计「作品集-2027」里作品案例下方的 15 个能力画板。
-   * 顺序按截图绿色箭头方向（从下往上读）：品牌 VI → MG 动画，即 CASE 01 → 15。
+   * 能力清单 —— 对应即时设计「作品集-2027」里作品案例下方的能力画板，共 15 屏（CASE 01 → 15）。
+   * 品牌 VI 视觉系统是独立展示区，不占用 CASE 序号。
    * 标题为用户在设计稿中改好的原文；eyebrow / 副标题 / 描述 / 标签均为重写文案。
    */
   capabilityList: [
@@ -261,76 +273,83 @@ export const site = {
     },
     {
       eyebrow: 'CASE 04 / 主视觉',
-      title: '品牌海报、主题 KV 视觉',
+      title: '品牌海报',
       sub: '概念・构图・传播',
       desc: '为一次传播找到能被记住的画面。从主题概念到构图、字体与色彩，提炼出一句视觉上的核心表达，再延展成海报、主图与系列物料。',
-      tags: ['主题 KV', '海报设计', '系列延展']
+      tags: ['海报设计', '构图层级', '系列延展']
     },
     {
-      eyebrow: 'CASE 05 / 字形',
-      title: '字体定制设计',
+      eyebrow: 'CASE 05 / 主视觉',
+      title: '主题 KV 视觉',
+      sub: '标题・氛围・成套',
+      desc: '会议、接待、节点活动的第一眼画面。用一句有分量的标题字撑住场面，再用背景光影、城市剪影与落款信息把层级排清楚；同一套版式换色换字，就能延展成整场现场物料。',
+      tags: ['主题画面', '氛围光影', '成套延展']
+    },
+    {
+      eyebrow: 'CASE 06 / 字形',
+      title: '字体设计',
       sub: '笔形・字重・气质',
       desc: '为品牌设计专属的字形气质。调整笔画、重心与字重，让标题一眼可辨，同时保证在小字号和多语言场景下依旧清晰、统一。',
       tags: ['字形设计', '字重系统', '多语言适配']
     },
     {
-      eyebrow: 'CASE 06 / 电商视觉',
+      eyebrow: 'CASE 07 / 电商视觉',
       title: '电商主图、商品详情页',
       sub: '卖点・转化・规范',
       desc: '在有限的首屏里讲清产品为什么值得买。用主图抓住注意力，用详情页铺陈卖点与参数，遵循平台规范的同时保持品牌的一致性。',
       tags: ['电商主图', '详情排版', '卖点提炼']
     },
     {
-      eyebrow: 'CASE 07 / 产品视觉',
+      eyebrow: 'CASE 08 / 产品视觉',
       title: '3D 产品渲染 & 产品精修',
       sub: '建模・布光・质感',
       desc: '用三维与后期把产品最真实也最理想的一面呈现出来。从建模、材质到布光与精修，还原结构、交代质感，让画面在没有实物的场合也能说服人。',
       tags: ['三维建模', '场景布光', '产品精修']
     },
     {
-      eyebrow: 'CASE 08 / 多媒介',
+      eyebrow: 'CASE 09 / 多媒介',
       title: '网页视觉、易拉宝、名片等线下物料',
       sub: '屏幕・纸张・一致',
       desc: '同一套语言跨越屏幕与纸张。网页讲究交互与适配，物料讲究材质与印刷，在两种媒介里维持一致的色彩、字体与气质。',
       tags: ['网页视觉', '线下物料', '跨媒介一致']
     },
     {
-      eyebrow: 'CASE 09 / 桌面端',
+      eyebrow: 'CASE 10 / 桌面端',
       title: '软件客户端界面设计',
       sub: '组件・流程・效率',
       desc: '面向长时间、高频使用的桌面软件，把复杂功能收进清晰的界面秩序。用组件和流程规范降低学习成本，让工具顺手而不是炫目。',
       tags: ['客户端界面', '组件规范', '操作效率']
     },
     {
-      eyebrow: 'CASE 10 / 图标',
+      eyebrow: 'CASE 11 / 图标',
       title: '功能图标、系统图标设计',
       sub: '语义・网格・统一',
       desc: '用小图形承担大信息量。以统一的网格、线宽与圆角建立规则，让数百枚图标成套、易识别，在不同尺寸下都保持清晰。',
       tags: ['功能图标', '图标规范', '网格系统']
     },
     {
-      eyebrow: 'CASE 11 / 界面落地',
+      eyebrow: 'CASE 12 / 界面落地',
       title: '交互界面原型视觉落地',
       sub: '原型・还原・走查',
       desc: '从流程草图到高保真界面，再到研发可实现的标注与组件。用原型验证逻辑，用规范保证还原，让最终上线与 design 稿一致。',
       tags: ['交互原型', '高保真界面', '还原走查']
     },
     {
-      eyebrow: 'CASE 12 / 数据',
+      eyebrow: 'CASE 13 / 数据',
       title: '数据可视化图表设计',
       sub: '图表・仪表・可读',
       desc: '让数据自己说话。按数据关系选择合适的图表形式，用颜色、层级与标注突出重点，把复杂的系统状态压缩成一眼可读的界面。',
       tags: ['图表设计', '数据大屏', '信息层级']
     },
     {
-      eyebrow: 'CASE 13 / 影像',
+      eyebrow: 'CASE 14 / 影像',
       title: '短视频剪辑、产品宣传片',
       sub: '分镜・节奏・成片',
       desc: '用镜头和节奏讲一个关于产品的短故事。从分镜、拍摄到剪辑、调色与合成，把功能点变成可被记住的画面与节拍。',
       tags: ['分镜脚本', '剪辑调色', '成片输出']
     },
     {
-      eyebrow: 'CASE 14 / 动态',
+      eyebrow: 'CASE 15 / 动态',
       title: '动态演示、动效视觉、MG 演示动画',
       sub: '动效・演示・叙事',
       desc: '让复杂的机制随着时间被看懂。用 MG 动画、演示动效与节奏叙事，把抽象的流程转化成看得见的动态表达。',

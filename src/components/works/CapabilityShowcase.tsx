@@ -5,7 +5,7 @@ import FullscreenCarousel, { type FullscreenCarouselHandle } from '@/components/
 import CapabilityTitleBoard from '@/components/works/CapabilityTitleBoard';
 
 /**
- * 能力清单 —— 14 屏，全站统一模板
+ * 能力清单 —— 15 屏，全站统一模板
  * ------------------------------------------------------------------
  * 每一屏的结构完全一致：
  *   白缝 → 浅灰标题栏（2560×359，代码渲染 CASE / 标题 / 副标题 / 描述 / 标签）
