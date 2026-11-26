@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { findWork, nextWork } from '@/data/works';
 import { Section } from '@/components/ui/Section';
@@ -16,6 +17,8 @@ export default function WorkDetailPage() {
   const { slug } = useParams();
   const work = findWork(slug);
   const next = nextWork(slug);
+  /* 默认展示大气网格的原型，点击下方系统卡片可联动切换 */
+  const [activeCase, setActiveCase] = useState(1);
 
   /* ---------- 无数据：占位模板 ---------- */
   if (!work) {
@@ -55,6 +58,10 @@ export default function WorkDetailPage() {
   /* ---------- 有 detail：三段式详情（1:1 还原画板 126:1 / 127:29 / 127:73） ---------- */
   if (work.detail) {
     const d = work.detail;
+    /* 选中的系统卡片决定底部缩略条展示哪套原型 */
+    const selected = d.cases[activeCase] ?? d.cases[0];
+    const prototypes = selected?.prototypes ?? d.content.prototypes;
+    const prototypeNote = selected?.prototypeNote ?? d.content.prototypeNote;
     return (
       <div className="wd">
         {/* ===== 画板 1 · 项目介绍（126:1）===== */}
@@ -120,7 +127,15 @@ export default function WorkDetailPage() {
             const x = 140 + col * 770;
             const y = 118 + row * 615;
             return (
-              <div className="wd-case" key={`${item.title}-${i}`} style={at(x, y, 740, 584)}>
+              <button
+                type="button"
+                className={`wd-case ${activeCase === i ? 'is-active' : ''}`}
+                key={`${item.title}-${i}`}
+                style={at(x, y, 740, 584)}
+                onClick={() => setActiveCase(i)}
+                aria-label={`查看${item.title}原型`}
+                aria-pressed={activeCase === i}
+              >
                 <div className="wd-case__media" style={{ height: u(409) }}>
                   {item.cover && <img className="wd-case__cover" src={item.cover} alt="" loading="lazy" />}
                 </div>
@@ -129,7 +144,7 @@ export default function WorkDetailPage() {
                   <h3 className="wd-case__title" style={{ fontSize: u(28) }}>{item.title}</h3>
                   <p className="wd-case__desc" style={{ fontSize: u(23) }}>{item.desc}</p>
                 </div>
-              </div>
+              </button>
             );
           })}
         </Artboard>
@@ -169,13 +184,15 @@ export default function WorkDetailPage() {
               </div>
             );
           })}
-          {/* 只保留中间的十字分隔：一条竖线 + 一条横线 */}
-          <div className="wd-line-v" style={at(1280, 354, 1, 380)} />
+          {/* 列间竖线 + 中部横线：三条竖线与一条横线构成模块网格 */}
+          {[710, 1280, 1850].map(x => (
+            <div className="wd-line-v" key={x} style={at(x, 354, 1, 380)} />
+          ))}
           <div className="wd-line" style={at(141, 542, 2279, 1)} />
 
-          {/* 底部原型缩略条：10 张智慧井盖原型，可横向滚动 */}
-          <div className="wd-prototypes__track" style={at(140, 803, 2281, 387)}>
-            {d.content.prototypes.map((p, i) => (
+          {/* 底部原型缩略条：随上方选中的系统卡片联动切换，可横向滚动 */}
+          <div className="wd-prototypes__track" key={activeCase} style={at(140, 803, 2281, 387)}>
+            {prototypes.map((p, i) => (
               <div className="wd-prototype" key={p.label} style={{ width: u(437), height: u(387) }}>
                 <div className="wd-prototype__media" style={{ height: u(303) }}>
                   {p.image && <img className="wd-prototype__img" src={p.image} alt={p.label} loading="lazy" />}
@@ -192,7 +209,7 @@ export default function WorkDetailPage() {
             <span className="wd-slider__thumb" />
           </div>
           <p className="wd-prototypes__note" style={{ ...at(142, 1324, 700, 40), fontSize: u(22) }}>
-            {d.content.prototypeNote}
+            {prototypeNote}
           </p>
 
           {/* 返回按钮（131:107） */}

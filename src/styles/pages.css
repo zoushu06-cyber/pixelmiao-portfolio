@@ -2172,6 +2172,17 @@
   background: #141615;
   border: 1px solid #202322;
   overflow: hidden;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.wd-case:hover {
+  border-color: #5a5e5c;
+}
+.wd-case.is-active {
+  border-color: #c9762f;
 }
 .wd-case__media {
   position: relative;

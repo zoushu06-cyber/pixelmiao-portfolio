@@ -52,6 +52,9 @@ export interface WorkCaseCard {
   desc: string;
   /** 可选封面图，未提供时沿用占位渐变 */
   cover?: string;
+  /** 点击该卡片时联动到底部缩略条展示的原型图 */
+  prototypes?: Array<{ label: string; image: string }>;
+  prototypeNote?: string;
 }
 
 /** 详情页 · 模块地图中的一个模块 */
@@ -185,11 +188,63 @@ export const works: Work[] = [
           category: '市政设施',
           title: '智慧井盖监测系统',
           desc: '井盖状态、报警与工单',
-          cover: '/images/qiwuyun/manhole/cover.webp'
+          cover: '/images/qiwuyun/manhole/cover.webp',
+          prototypes: [
+            { label: '实时数据', image: '/images/qiwuyun/manhole/01.webp' },
+            { label: '设备总览', image: '/images/qiwuyun/manhole/02.webp' },
+            { label: '设备管理', image: '/images/qiwuyun/manhole/03.webp' },
+            { label: '工单管理', image: '/images/qiwuyun/manhole/04.webp' },
+            { label: '报警配置', image: '/images/qiwuyun/manhole/05.webp' },
+            { label: '报警配置・添加', image: '/images/qiwuyun/manhole/06.webp' },
+            { label: '操作日志', image: '/images/qiwuyun/manhole/07.webp' },
+            { label: '角色权限', image: '/images/qiwuyun/manhole/08.webp' },
+            { label: '许可证管理', image: '/images/qiwuyun/manhole/09.webp' },
+            { label: '部门管理', image: '/images/qiwuyun/manhole/10.webp' }
+          ],
+          prototypeNote: '界面原型・10 张，点击卡片切换系统，缩略条可左右拖动'
         },
-        { category: '环境监测', title: '大气网格监测系统', desc: '实况一览、监测排行与数据补录' },
+        {
+          category: '环境监测',
+          title: '大气网格监测系统',
+          desc: '实况一览、监测排行与数据补录',
+          cover: '/images/qiwuyun/airgrid/cover.webp',
+          prototypes: [
+            { label: '全局地图', image: '/images/qiwuyun/airgrid/map.webp' },
+            { label: '字典管理', image: '/images/qiwuyun/airgrid/dict.webp' },
+            { label: '帮助文档', image: '/images/qiwuyun/airgrid/help.webp' },
+            { label: '常见问题', image: '/images/qiwuyun/airgrid/faq.webp' },
+            { label: '报警配置', image: '/images/qiwuyun/airgrid/alarm-config.webp' },
+            { label: '数据分析', image: '/images/qiwuyun/airgrid/analytics.webp' },
+            { label: '日常巡查计划', image: '/images/qiwuyun/airgrid/patrol-plan.webp' },
+            { label: '气象条件分布', image: '/images/qiwuyun/airgrid/weather.webp' },
+            { label: '污染过程分析', image: '/images/qiwuyun/airgrid/pollution.webp' },
+            { label: '登录', image: '/images/qiwuyun/airgrid/login.webp' },
+            { label: '站点人员权限', image: '/images/qiwuyun/airgrid/permissions.webp' },
+            { label: '设备管理', image: '/images/qiwuyun/airgrid/devices.webp' },
+            { label: '部门管理', image: '/images/qiwuyun/airgrid/departments.webp' }
+          ],
+          prototypeNote: '界面原型・13 张，点击卡片切换系统，缩略条可左右拖动'
+        },
         { category: '能源管理', title: '能源监测系统', desc: '水、电、冷、热、蒸汽计量' },
-        { category: '市政设施', title: '消防栓水压监测系统', desc: '水压、网关与区域分组' },
+        {
+          category: '市政设施',
+          title: '消防栓水压监测系统',
+          desc: '水压、网关与区域分组',
+          cover: '/images/qiwuyun/hydrant/cover.webp',
+          prototypes: [
+            { label: '区域分组', image: '/images/qiwuyun/hydrant/groups.webp' },
+            { label: '成员管理', image: '/images/qiwuyun/hydrant/members.webp' },
+            { label: '报警记录', image: '/images/qiwuyun/hydrant/alarm-log.webp' },
+            { label: '报警配置', image: '/images/qiwuyun/hydrant/alarm-config.webp' },
+            { label: '数据查询', image: '/images/qiwuyun/hydrant/data-query.webp' },
+            { label: '添加', image: '/images/qiwuyun/hydrant/add.webp' },
+            { label: '激活码', image: '/images/qiwuyun/hydrant/license-key.webp' },
+            { label: '网关列表', image: '/images/qiwuyun/hydrant/gateways.webp' },
+            { label: '角色管理', image: '/images/qiwuyun/hydrant/roles.webp' },
+            { label: '许可证管理', image: '/images/qiwuyun/hydrant/licenses.webp' }
+          ],
+          prototypeNote: '界面原型・10 张，点击卡片切换系统，缩略条可左右拖动'
+        },
         { category: '平台系统', title: '后台管理系统', desc: '设备类型、OTA 与备份恢复' },
         { category: '企业服务', title: '企业生态系统', desc: '平台提供讨论论坛' }
       ],
