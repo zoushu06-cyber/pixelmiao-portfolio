@@ -167,31 +167,8 @@ export default function WorkDetailPage() {
           })}
           <div className="wd-line" style={at(140, 224, 2279, 1)} />
 
-          {/* 模块地图 */}
-          <span className="wd-content__map-title" style={{ ...at(141, 278, 400, 44), fontSize: u(24) }}>
-            {d.content.mapTitle}
-          </span>
-          {d.content.modules.map((m, i) => {
-            const col = i % 4;
-            const row = Math.floor(i / 4);
-            const x = 177 + col * 572;
-            const y = 372 + row * 213;
-            return (
-              <div className="wd-module" key={m.no} style={at(x, y, 380, 150)}>
-                <span className="wd-module__no" style={{ fontSize: u(22) }}>{m.no}</span>
-                <h4 className="wd-module__title" style={{ fontSize: u(26) }}>{m.title}</h4>
-                <p className="wd-module__desc" style={{ fontSize: u(22) }}>{m.desc}</p>
-              </div>
-            );
-          })}
-          {/* 列间竖线 + 中部横线：三条竖线与一条横线构成模块网格 */}
-          {[710, 1280, 1850].map(x => (
-            <div className="wd-line-v" key={x} style={at(x, 354, 1, 380)} />
-          ))}
-          <div className="wd-line" style={at(141, 542, 2279, 1)} />
-
-          {/* 底部原型缩略条：随上方选中的系统卡片联动切换，可横向滚动 */}
-          <div className="wd-prototypes__track" key={activeCase} style={at(140, 803, 2281, 387)}>
+          {/* 原型缩略条：随上方选中的系统卡片联动切换，可横向滚动（位于模块地图上方） */}
+          <div className="wd-prototypes__track" key={activeCase} style={at(140, 250, 2281, 387)}>
             {prototypes.map((p, i) => (
               <div className="wd-prototype" key={p.label} style={{ width: u(437), height: u(387) }}>
                 <div className="wd-prototype__media" style={{ height: u(303) }}>
@@ -204,18 +181,32 @@ export default function WorkDetailPage() {
             ))}
           </div>
 
-          {/* 滑动条（131:102） */}
-          <div className="wd-slider" style={at(140, 1209, 2281, 26)} aria-hidden="true">
-            <span className="wd-slider__thumb" />
-          </div>
-          <p className="wd-prototypes__note" style={{ ...at(142, 1324, 700, 40), fontSize: u(22) }}>
+          <p className="wd-prototypes__note" style={{ ...at(142, 648, 700, 40), fontSize: u(22) }}>
             {prototypeNote}
           </p>
 
-          {/* 返回按钮（131:107） */}
-          <Link to="/works" className="wd-content__back" style={at(2184, 1302, 237, 73)}>
-            <span style={{ fontSize: u(28) }}>{d.content.backLabel}</span>
-          </Link>
+          {/* 模块地图 */}
+          <span className="wd-content__map-title" style={{ ...at(141, 712, 400, 44), fontSize: u(24) }}>
+            {d.content.mapTitle}
+          </span>
+          {d.content.modules.map((m, i) => {
+            const col = i % 4;
+            const row = Math.floor(i / 4);
+            const x = 177 + col * 572;
+            const y = 806 + row * 213;
+            return (
+              <div className="wd-module" key={m.no} style={at(x, y, 380, 150)}>
+                <span className="wd-module__no" style={{ fontSize: u(22) }}>{m.no}</span>
+                <h4 className="wd-module__title" style={{ fontSize: u(26) }}>{m.title}</h4>
+                <p className="wd-module__desc" style={{ fontSize: u(22) }}>{m.desc}</p>
+              </div>
+            );
+          })}
+          {/* 列间竖线 + 中部横线：三条竖线与一条横线构成模块网格 */}
+          {[710, 1280, 1850].map(x => (
+            <div className="wd-line-v" key={x} style={at(x, 788, 1, 380)} />
+          ))}
+          <div className="wd-line" style={at(141, 976, 2279, 1)} />
         </Artboard>
 
         {/* 下一个项目 */}
