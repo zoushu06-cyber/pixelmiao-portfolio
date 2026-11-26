@@ -196,6 +196,14 @@
   pointer-events: none;
   display: none;
 }
+/* PORTRAIT 标题与右上角「中/英」同一行 */
+.hero__portrait-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
 .hero__portrait-title {
   position: relative;
   font-size: clamp(0.75rem, 1vw, 1rem);
@@ -1245,7 +1253,7 @@
 }
 .hero__center {
   justify-content: flex-start;
-  padding-top: clamp(1rem, 11.53vh, 10.375rem);
+  padding-top: clamp(1rem, 11vh, 10.375rem);
   padding-bottom: 0;
 }
 .hero__title {
@@ -1280,7 +1288,7 @@
    邮箱 60%·所在地 66%·职业 73% / ZOU 行 82% / 中英按钮 90% */
 .hero__portrait {
   padding-top: clamp(4rem, 8vh, 7.5rem);
-  padding-bottom: clamp(3rem, 7vh, 7.5rem);
+  padding-bottom: clamp(1.5rem, 3vh, 3rem);
   padding-left: clamp(1.5rem, 6.95vw, 11.125rem);
   padding-right: clamp(1rem, 4vw, 6.4rem);
 }
@@ -1293,22 +1301,30 @@
   flex: 0 0 auto;
   margin-top: clamp(0.5rem, 1vh, 1rem);
 }
+/* 设计稿照片框：宽约 440、高约 550（1920 视口），竖长 4:5 */
 .hero__portrait-photo {
   max-width: 23vw;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
 }
 /* 相框下方的分隔线由 .hero__portrait-info 的 border-top 承担 */
 .hero__portrait-info {
-  margin-top: clamp(2rem, 4vh, 4rem);
-  padding-top: clamp(1rem, 4vh, 4rem);
-  gap: clamp(1rem, 4vh, 4rem);
+  margin-top: clamp(1.2rem, 2.4vh, 2.4rem);
+  padding-top: clamp(0.8rem, 2vh, 2rem);
+  gap: clamp(1rem, 2.4vh, 2.4rem);
+}
+/* 标签在上、内容在下（设计稿：邮箱/所在地/职业身份 各占两行） */
+.hero__portrait-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.3rem, 0.7vh, 0.7rem);
 }
 .hero__portrait-foot {
-  margin-top: clamp(2rem, 6.8vh, 7rem);
+  margin-top: clamp(1.2rem, 2.8vh, 2.8rem);
   font-size: clamp(0.6rem, 0.664vw, 1.0625rem);
 }
+/* 中/英 已移至顶部 PORTRAIT 同一行 */
 .hero__portrait-tools {
-  margin-top: clamp(1.5rem, 4.6vh, 5rem);
+  margin-top: 0;
 }
 
 /* 工作经历 */

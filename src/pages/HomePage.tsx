@@ -74,7 +74,19 @@ export default function HomePage() {
 
         {/* 右侧 PORTRAIT 信息栏（画板 114:41–114:54） */}
         <aside className="hero__portrait" aria-label="个人信息">
-          <span className="hero__portrait-title">{site.hero.portrait.title}</span>
+          <div className="hero__portrait-head">
+            <span className="hero__portrait-title">{site.hero.portrait.title}</span>
+            <div className="hero__portrait-tools">
+              <button
+                type="button"
+                className="hero__tool"
+                aria-label="中英文切换"
+                title="中 / EN"
+              >
+                <span className="hero__tool-box">{site.hero.portrait.lang}</span>
+              </button>
+            </div>
+          </div>
           <div className="hero__portrait-frame">
             <div className="hero__portrait-photo">
               <img src="/images/portrait.webp" alt="肖像照" decoding="async" />
@@ -106,16 +118,6 @@ export default function HomePage() {
           <div className="hero__portrait-foot">
             <span>{site.hero.portrait.sign}</span>
             <span>{site.hero.portrait.works}</span>
-          </div>
-          <div className="hero__portrait-tools">
-            <button
-              type="button"
-              className="hero__tool"
-              aria-label="中英文切换"
-              title="中 / EN"
-            >
-              <span className="hero__tool-box">{site.hero.portrait.lang}</span>
-            </button>
           </div>
         </aside>
       </Section>
