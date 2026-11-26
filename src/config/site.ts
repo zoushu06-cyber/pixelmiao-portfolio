@@ -115,6 +115,15 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/ecommerce-01.webp',
     '/images/capability-slides/ecommerce-02.webp',
     '/images/capability-slides/ecommerce-03.webp'
+  ],
+  // CASE 09 / 网页视觉、易拉宝、名片等线下物料：6 张（网页 3 + 易拉宝 2 + 名片 1）
+  8: [
+    '/images/capability-slides/web-visual-01.webp',
+    '/images/capability-slides/web-visual-02.webp',
+    '/images/capability-slides/web-visual-03.webp',
+    '/images/capability-slides/rollup-01.webp',
+    '/images/capability-slides/rollup-02.webp',
+    '/images/capability-slides/namecard-01.webp'
   ]
 };
 
