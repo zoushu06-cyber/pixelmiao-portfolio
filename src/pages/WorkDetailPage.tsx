@@ -151,24 +151,8 @@ export default function WorkDetailPage() {
 
         {/* ===== 画板 3 · 详细内容（127:73）===== */}
         <Artboard className="wd-ab wd-content-ab" label="详细内容" bg="#080a09">
-          {/* 顶部「还有」标签行（131:71） */}
-          <span className="wd-more__label" style={{ ...at(141, 58, 70, 40), fontSize: u(22) }}>还有</span>
-          {d.content.more.map((m, i) => {
-            const row1 = [[216, 336], [574, 468], [1064, 446], [1532, 453]];
-            const row2 = [[216, 380], [618, 356]];
-            const cfg = i < 4 ? row1[i] : row2[i - 4];
-            const y = i < 4 ? 45 : 124;
-            return (
-              <div className="wd-more-chip" key={m.title} style={at(cfg[0], y, cfg[1], 57)}>
-                <strong style={{ fontSize: u(22) }}>{m.title}</strong>
-                <em style={{ fontSize: u(22) }}>{m.desc}</em>
-              </div>
-            );
-          })}
-          <div className="wd-line" style={at(140, 224, 2279, 1)} />
-
-          {/* 原型缩略条：随上方选中的系统卡片联动切换，可横向滚动（位于模块地图上方） */}
-          <div className="wd-prototypes__track" key={activeCase} style={at(140, 250, 2281, 387)}>
+          {/* 原型缩略条：置于顶部，随选中的系统卡片联动切换，可横向滚动 */}
+          <div className="wd-prototypes__track" key={activeCase} style={at(140, 45, 2281, 387)}>
             {prototypes.map((p, i) => (
               <div className="wd-prototype" key={p.label} style={{ width: u(437), height: u(387) }}>
                 <div className="wd-prototype__media" style={{ height: u(303) }}>
@@ -181,9 +165,25 @@ export default function WorkDetailPage() {
             ))}
           </div>
 
-          <p className="wd-prototypes__note" style={{ ...at(142, 648, 700, 40), fontSize: u(22) }}>
+          <p className="wd-prototypes__note" style={{ ...at(142, 443, 700, 40), fontSize: u(22) }}>
             {prototypeNote}
           </p>
+
+          {/* 「还有」标签行（131:71）：移至原型条下方 */}
+          <span className="wd-more__label" style={{ ...at(141, 545, 70, 40), fontSize: u(22) }}>还有</span>
+          {d.content.more.map((m, i) => {
+            const row1 = [[216, 336], [574, 468], [1064, 446], [1532, 453]];
+            const row2 = [[216, 380], [618, 356]];
+            const cfg = i < 4 ? row1[i] : row2[i - 4];
+            const y = i < 4 ? 532 : 611;
+            return (
+              <div className="wd-more-chip" key={m.title} style={at(cfg[0], y, cfg[1], 57)}>
+                <strong style={{ fontSize: u(22) }}>{m.title}</strong>
+                <em style={{ fontSize: u(22) }}>{m.desc}</em>
+              </div>
+            );
+          })}
+          <div className="wd-line" style={at(140, 510, 2279, 1)} />
 
           {/* 模块地图 */}
           <span className="wd-content__map-title" style={{ ...at(141, 712, 400, 44), fontSize: u(24) }}>
