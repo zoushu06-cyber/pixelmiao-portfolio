@@ -25,6 +25,13 @@ npm-debug.log*
 .edge-tmp*/
 .edge-profile/
 .cdp-*.mjs
+.cdp-*.py
 .shot-*.png
 .shot-*.jpg
 .cmp-*.jpg
+.v-*.png
+.v-*.jpg
+.t-*.webp
+
+# 原图备份（已被 2560 高清版替换，仅本地留档，不入库避免仓库膨胀）
+assets/originals/
