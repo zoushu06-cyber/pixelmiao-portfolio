@@ -73,6 +73,17 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/brochure-02.jpg',
     '/images/capability-slides/brochure-03.jpg',
     '/images/capability-slides/brochure-04.jpg'
+  ],
+  // CASE 03 / 线下专柜、展会展览视觉设计：KEENYODA 展台三视图（画板 17）
+  2: ['/images/capability-slides/exhibition-01.jpg'],
+  // CASE 04 / 品牌海报、主题 KV：6 张品牌海报，顺序按用户给定（海报 06 / 01 / 02 / 03 / 04 / 05）
+  3: [
+    '/images/capability-slides/brand-poster-01.jpg',
+    '/images/capability-slides/brand-poster-02.jpg',
+    '/images/capability-slides/brand-poster-03.jpg',
+    '/images/capability-slides/brand-poster-04.jpg',
+    '/images/capability-slides/brand-poster-05.jpg',
+    '/images/capability-slides/brand-poster-06.jpg'
   ]
 };
 
