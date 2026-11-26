@@ -66,18 +66,31 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/tea-package-06.jpg',
     '/images/capability-slides/tea-package-07.jpg'
   ],
-  // CASE 02 / 企业画册、品牌手册：4 张画册样机实拍，顺序按用户给定 01 → 04
-  // （防爆画册 2 张 + 产品选型画册 2 张）
+  // CASE 02 / 3D 产品渲染：9 张镜头 / 灯具 / 设备渲染图，顺序按用户给定 01 → 09
+  // （镜头+滤镜 / 白色设备群 / 蓝色投影 / 手持镜头 / 双镜头+光圈片 / 镜头组+相机 / 爆炸图 / 轨道灯 / 全系合影）
   1: [
+    '/images/capability-slides/3d-render-01.jpg',
+    '/images/capability-slides/3d-render-02.jpg',
+    '/images/capability-slides/3d-render-03.jpg',
+    '/images/capability-slides/3d-render-04.jpg',
+    '/images/capability-slides/3d-render-05.jpg',
+    '/images/capability-slides/3d-render-06.jpg',
+    '/images/capability-slides/3d-render-07.jpg',
+    '/images/capability-slides/3d-render-08.jpg',
+    '/images/capability-slides/3d-render-09.jpg'
+  ],
+  // CASE 03 / 企业画册、品牌手册：4 张画册样机实拍，顺序按用户给定 01 → 04
+  // （防爆画册 2 张 + 产品选型画册 2 张）
+  2: [
     '/images/capability-slides/brochure-01.jpg',
     '/images/capability-slides/brochure-02.jpg',
     '/images/capability-slides/brochure-03.jpg',
     '/images/capability-slides/brochure-04.jpg'
   ],
-  // CASE 03 / 线下专柜、展会展览视觉设计：KEENYODA 展台三视图（画板 17）
-  2: ['/images/capability-slides/exhibition-01.jpg'],
-  // CASE 04 / 品牌海报：6 张品牌海报，顺序按用户给定（海报 06 / 01 / 02 / 03 / 04 / 05）
-  3: [
+  // CASE 04 / 线下专柜、展会展览视觉设计：KEENYODA 展台三视图（画板 17）
+  3: ['/images/capability-slides/exhibition-01.jpg'],
+  // CASE 05 / 品牌海报：6 张品牌海报，顺序按用户给定（海报 06 / 01 / 02 / 03 / 04 / 05）
+  4: [
     '/images/capability-slides/brand-poster-01.jpg',
     '/images/capability-slides/brand-poster-02.jpg',
     '/images/capability-slides/brand-poster-03.jpg',
@@ -85,14 +98,14 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/brand-poster-05.jpg',
     '/images/capability-slides/brand-poster-06.jpg'
   ],
-  // CASE 05 / 主题 KV 视觉：会议接待主视觉 3 版（深蓝金 / 红金 / 蓝白）
-  4: [
+  // CASE 06 / 主题 KV 视觉：会议接待主视觉 3 版（深蓝金 / 红金 / 蓝白）
+  5: [
     '/images/capability-slides/kv-01.jpg',
     '/images/capability-slides/kv-02.jpg',
     '/images/capability-slides/kv-03.jpg'
   ],
-  // CASE 06 / 字体设计：3 组字形提案（奔赴好时光 / 夏日终章 / 在野生活）
-  5: [
+  // CASE 07 / 字体设计：3 组字形提案（奔赴好时光 / 夏日终章 / 在野生活）
+  6: [
     '/images/capability-slides/type-design-01.jpg',
     '/images/capability-slides/type-design-02.jpg',
     '/images/capability-slides/type-design-03.png'
@@ -205,10 +218,10 @@ export const site = {
         summary: '对外视觉体系的主要产出者：从一本画册的结构、一套包装的印制，到展台的一面墙、一条 15 秒的片子，都由一个人跟到落地。',
         details: [
           '品牌与物料：VI 延展、包装结构与印前文件、企业画册版式、海报与 KV、专柜与展陈主视觉，累计交付 50+；从提案、打样到印刷输出独立跟完。',
-          '数字与三维：产品精修、C4D + Octane 与 KeyShot 建模渲染、电商主图与详情页排版；短片剪辑与动态视觉演示的合成输出。',
+          '数字与三维：C4D + Octane 与 KeyShot 建模渲染、电商主图与详情页排版；短片剪辑与动态视觉演示的合成输出。',
           '协同与效率：与产品、外贸、供应商对接中英文物料；用 AI 与 Codex 做内部效率工具，把重复的排版与校验交给脚本，客户满意度 95%。'
         ],
-        tags: ['产品渲染', '场景布光', '画册与详情页', '产品精修', '动态演示', '动画短片', '结构剖视']
+        tags: ['产品渲染', '场景布光', '画册与详情页', '动态演示', '动画短片', '结构剖视']
       },
       {
         period: '2018.09 — 2023.03',
@@ -258,53 +271,53 @@ export const site = {
       tags: ['盒型结构', '材质工艺', '印前完稿']
     },
     {
-      eyebrow: 'CASE 02 / 印刷物',
+      eyebrow: 'CASE 02 / 产品视觉',
+      title: '3D 产品渲染',
+      sub: '建模・布光・质感',
+      desc: '用三维把产品最真实也最理想的一面呈现出来。从建模、材质到布光与后期，还原结构、交代质感，让画面在没有实物的场合也能说服人。',
+      tags: ['三维建模', '场景布光', '材质表现']
+    },
+    {
+      eyebrow: 'CASE 03 / 印刷物',
       title: '企业画册、品牌手册',
       sub: '网格・层级・阅读',
       desc: '用网格建立秩序，用层级引导阅读。把大量信息组织成可翻阅的节奏，让画册既讲得清公司，也经得起反复翻看；从版式到纸张、装订全程跟到成品。',
       tags: ['版式系统', '信息编排', '印刷跟进']
     },
     {
-      eyebrow: 'CASE 03 / 空间视觉',
+      eyebrow: 'CASE 04 / 空间视觉',
       title: '线下专柜、展会展览视觉设计',
       sub: '导视・物料・动线',
       desc: '把品牌从平面延伸到真实空间。围绕人的走动路线安排主视觉与信息节点，让专柜和展台在复杂环境里依然清晰、有记忆点，并成套落地物料。',
       tags: ['展陈视觉', '导视系统', '空间物料']
     },
     {
-      eyebrow: 'CASE 04 / 主视觉',
+      eyebrow: 'CASE 05 / 主视觉',
       title: '品牌海报',
       sub: '概念・构图・传播',
       desc: '为一次传播找到能被记住的画面。从主题概念到构图、字体与色彩，提炼出一句视觉上的核心表达，再延展成海报、主图与系列物料。',
       tags: ['海报设计', '构图层级', '系列延展']
     },
     {
-      eyebrow: 'CASE 05 / 主视觉',
+      eyebrow: 'CASE 06 / 主视觉',
       title: '主题 KV 视觉',
       sub: '标题・氛围・成套',
       desc: '会议、接待、节点活动的第一眼画面。用一句有分量的标题字撑住场面，再用背景光影、城市剪影与落款信息把层级排清楚；同一套版式换色换字，就能延展成整场现场物料。',
       tags: ['主题画面', '氛围光影', '成套延展']
     },
     {
-      eyebrow: 'CASE 06 / 字形',
+      eyebrow: 'CASE 07 / 字形',
       title: '字体设计',
       sub: '笔形・字重・气质',
       desc: '为品牌设计专属的字形气质。调整笔画、重心与字重，让标题一眼可辨，同时保证在小字号和多语言场景下依旧清晰、统一。',
       tags: ['字形设计', '字重系统', '多语言适配']
     },
     {
-      eyebrow: 'CASE 07 / 电商视觉',
+      eyebrow: 'CASE 08 / 电商视觉',
       title: '电商主图、商品详情页',
       sub: '卖点・转化・规范',
       desc: '在有限的首屏里讲清产品为什么值得买。用主图抓住注意力，用详情页铺陈卖点与参数，遵循平台规范的同时保持品牌的一致性。',
       tags: ['电商主图', '详情排版', '卖点提炼']
-    },
-    {
-      eyebrow: 'CASE 08 / 产品视觉',
-      title: '3D 产品渲染 & 产品精修',
-      sub: '建模・布光・质感',
-      desc: '用三维与后期把产品最真实也最理想的一面呈现出来。从建模、材质到布光与精修，还原结构、交代质感，让画面在没有实物的场合也能说服人。',
-      tags: ['三维建模', '场景布光', '产品精修']
     },
     {
       eyebrow: 'CASE 09 / 多媒介',
