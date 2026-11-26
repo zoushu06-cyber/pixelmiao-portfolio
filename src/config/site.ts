@@ -55,15 +55,16 @@ export const capabilitySlides = [
 
 /** 指定屏的专属大图（键为 capabilityList 的下标）；未指定的屏使用通用图 */
 export const capabilitySlideOverrides: Record<number, string[]> = {
-  // CASE 01 / 产品包装设计：7 张茶叶包装实拍，顺序按用户给定（画板 11 / 5 / 6 / 7 / 8 / 9 / 10）
+  // CASE 01 / 产品包装设计：7 张茶叶包装实拍，顺序按用户给定 01 → 07
+  // （三盒 / 四盒 / 芳原茶礼 / 茶语山岚 / 雪夜 / 花溪 / 月麓）
   0: [
-    '/images/capability-slides/package-1.jpg',
-    '/images/capability-slides/package-2.jpg',
-    '/images/capability-slides/package-3.jpg',
-    '/images/capability-slides/package-4.jpg',
-    '/images/capability-slides/package-5.jpg',
-    '/images/capability-slides/package-6.jpg',
-    '/images/capability-slides/package-7.jpg'
+    '/images/capability-slides/tea-package-01.jpg',
+    '/images/capability-slides/tea-package-02.jpg',
+    '/images/capability-slides/tea-package-03.jpg',
+    '/images/capability-slides/tea-package-04.jpg',
+    '/images/capability-slides/tea-package-05.jpg',
+    '/images/capability-slides/tea-package-06.jpg',
+    '/images/capability-slides/tea-package-07.jpg'
   ],
   // CASE 02 / 企业画册、品牌手册：用户提供的高清画册样机画面（6000x3375 原图）
   1: [
