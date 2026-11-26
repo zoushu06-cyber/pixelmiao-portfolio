@@ -109,6 +109,12 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/type-design-01.jpg',
     '/images/capability-slides/type-design-02.jpg',
     '/images/capability-slides/type-design-03.png'
+  ],
+  // CASE 08 / 电商主图、商品详情页：3 张（接近开关详情页 2 组 + 主图三宫格）
+  7: [
+    '/images/capability-slides/ecommerce-01.jpg',
+    '/images/capability-slides/ecommerce-02.jpg',
+    '/images/capability-slides/ecommerce-03.jpg'
   ]
 };
 
