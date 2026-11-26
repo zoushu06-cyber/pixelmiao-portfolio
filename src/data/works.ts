@@ -225,7 +225,30 @@ export const works: Work[] = [
           ],
           prototypeNote: '界面原型・13 张，点击卡片切换系统，缩略条可左右拖动'
         },
-        { category: '能源管理', title: '能源监测系统', desc: '水、电、冷、热、蒸汽计量' },
+        {
+          category: '能源管理',
+          title: '能源监测系统',
+          desc: '水、电、冷、热、蒸汽计量',
+          cover: '/images/qiwuyun/energy/cover.webp',
+          prototypes: [
+            { label: '统计分析・用水', image: '/images/qiwuyun/energy/water-analysis.webp' },
+            { label: '统计分析・用电', image: '/images/qiwuyun/energy/power-analysis.webp' },
+            { label: '区域分析・蒸汽', image: '/images/qiwuyun/energy/steam-analysis.webp' },
+            { label: '设备报警', image: '/images/qiwuyun/energy/device-alarm.webp' },
+            { label: '系统报警・原因', image: '/images/qiwuyun/energy/alarm-reason.webp' },
+            { label: '系统报警・配置', image: '/images/qiwuyun/energy/alarm-config.webp' },
+            { label: '设备管理・网关', image: '/images/qiwuyun/energy/gateways.webp' },
+            { label: '设备管理・自动化', image: '/images/qiwuyun/energy/auto-devices.webp' },
+            { label: '设备管理・报警', image: '/images/qiwuyun/energy/device-alarm-mgmt.webp' },
+            { label: '用户管理', image: '/images/qiwuyun/energy/users.webp' },
+            { label: '角色管理', image: '/images/qiwuyun/energy/roles.webp' },
+            { label: '角色权限', image: '/images/qiwuyun/energy/permissions.webp' },
+            { label: '许可证管理', image: '/images/qiwuyun/energy/licenses.webp' },
+            { label: '激活码输入', image: '/images/qiwuyun/energy/license-input.webp' },
+            { label: '账户设置', image: '/images/qiwuyun/energy/account.webp' }
+          ],
+          prototypeNote: '界面原型・15 张，点击卡片切换系统，缩略条可左右拖动'
+        },
         {
           category: '市政设施',
           title: '消防栓水压监测系统',
