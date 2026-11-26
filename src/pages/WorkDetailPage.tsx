@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/motion/Reveal';
 import { BlurText } from '@/components/motion/BlurText';
 import Artboard, { at, u } from '@/components/ui/Artboard';
+import PrototypeLightbox from '@/components/works/PrototypeLightbox';
 
 /**
  * 作品详情
@@ -19,6 +20,8 @@ export default function WorkDetailPage() {
   const next = nextWork(slug);
   /* 默认展示大气网格的原型，点击下方系统卡片可联动切换 */
   const [activeCase, setActiveCase] = useState(1);
+  /* 原型缩略图点击放大：当前预览的原型下标，null 表示关闭 */
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   /* ---------- 无数据：占位模板 ---------- */
   if (!work) {
@@ -132,7 +135,10 @@ export default function WorkDetailPage() {
                 className={`wd-case ${activeCase === i ? 'is-active' : ''}`}
                 key={`${item.title}-${i}`}
                 style={at(x, y, 740, 584)}
-                onClick={() => setActiveCase(i)}
+                onClick={() => {
+                  setActiveCase(i);
+                  setLightboxIndex(null);
+                }}
                 aria-label={`查看${item.title}原型`}
                 aria-pressed={activeCase === i}
               >
@@ -154,14 +160,21 @@ export default function WorkDetailPage() {
           {/* 原型缩略条：置于顶部，随选中的系统卡片联动切换，可横向滚动 */}
           <div className="wd-prototypes__track" key={activeCase} style={at(140, 20, 2281, 387)}>
             {prototypes.map((p, i) => (
-              <div className="wd-prototype" key={p.label} style={{ width: u(437), height: u(387) }}>
+              <button
+                type="button"
+                className="wd-prototype"
+                key={p.label}
+                style={{ width: u(437), height: u(387) }}
+                onClick={() => setLightboxIndex(i)}
+                aria-label={`放大查看${p.label}`}
+              >
                 <div className="wd-prototype__media" style={{ height: u(303) }}>
                   {p.image && <img className="wd-prototype__img" src={p.image} alt={p.label} loading="lazy" />}
                 </div>
                 <span className={`wd-prototype__label ${i === 0 ? 'is-active' : ''}`} style={{ fontSize: u(34.4) }}>
                   {p.label}
                 </span>
-              </div>
+              </button>
             ))}
           </div>
 
@@ -208,6 +221,16 @@ export default function WorkDetailPage() {
           ))}
           <div className="wd-line" style={at(141, 1096, 2279, 1)} />
         </Artboard>
+
+        {/* 原型大图灯箱（Portal 到 body，避开画板裁切） */}
+        {lightboxIndex !== null && (
+          <PrototypeLightbox
+            slides={prototypes}
+            index={lightboxIndex}
+            onClose={() => setLightboxIndex(null)}
+            onChange={setLightboxIndex}
+          />
+        )}
 
         {/* 下一个项目 */}
         {next && next.slug !== work.slug && (
