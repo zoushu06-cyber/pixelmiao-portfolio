@@ -268,7 +268,22 @@ export const works: Work[] = [
           ],
           prototypeNote: '界面原型・10 张，点击卡片切换系统，缩略条可左右拖动'
         },
-        { category: '平台系统', title: '后台管理系统', desc: '设备类型、OTA 与备份恢复' },
+        {
+          category: '平台系统',
+          title: '后台管理系统',
+          desc: '设备类型、OTA 与备份恢复',
+          cover: '/images/qiwuyun/admin/dev-types.webp',
+          prototypes: [
+            { label: '设备属性管理', image: '/images/qiwuyun/admin/dev-attrs.webp' },
+            { label: 'OTA 固件管理', image: '/images/qiwuyun/admin/ota-firmware.webp' },
+            { label: 'OTA 固件管理・新增', image: '/images/qiwuyun/admin/ota-add.webp' },
+            { label: '备份与恢复', image: '/images/qiwuyun/admin/backup-restore.webp' },
+            { label: '备份与恢复・手动备份', image: '/images/qiwuyun/admin/backup-manual.webp' },
+            { label: '方案列表', image: '/images/qiwuyun/admin/schemes.webp' },
+            { label: '权限列表', image: '/images/qiwuyun/admin/permissions.webp' }
+          ],
+          prototypeNote: '界面原型・7 张，点击卡片切换系统，缩略条可左右拖动'
+        },
         { category: '企业服务', title: '企业生态系统', desc: '平台提供讨论论坛' }
       ],
 
