@@ -2174,12 +2174,22 @@
   overflow: hidden;
 }
 .wd-case__media {
+  position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 1em 1.5em;
   background: #ffffff;
   flex: none;
+  overflow: hidden;
+}
+.wd-case__cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .wd-case__info {
   display: flex;
@@ -2271,25 +2281,42 @@
 }
 .wd-prototypes__track {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
+  inset: auto;
+  min-width: 0;
+  display: flex;
+  gap: 0.94cqw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  pointer-events: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #3a3c3b #141615;
 }
 .wd-prototype {
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: column;
+  flex: none;
   border: 1px solid #202322;
   border-radius: 3px;
   overflow: hidden;
   background: #141615;
 }
 .wd-prototype__media {
+  position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 1em 1.4em;
+  padding: 0;
   background: #ffffff;
   flex: none;
+  overflow: hidden;
+}
+.wd-prototype__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #ffffff;
 }
 .wd-prototype__label {
   display: flex;

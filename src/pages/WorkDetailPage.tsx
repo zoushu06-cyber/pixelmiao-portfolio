@@ -121,7 +121,9 @@ export default function WorkDetailPage() {
             const y = 118 + row * 615;
             return (
               <div className="wd-case" key={`${item.title}-${i}`} style={at(x, y, 740, 584)}>
-                <div className="wd-case__media" style={{ height: u(409) }} />
+                <div className="wd-case__media" style={{ height: u(409) }}>
+                  {item.cover && <img className="wd-case__cover" src={item.cover} alt="" loading="lazy" />}
+                </div>
                 <div className="wd-case__info" style={{ height: u(175) }}>
                   <span className="wd-case__category" style={{ fontSize: u(24) }}>{item.category}</span>
                   <h3 className="wd-case__title" style={{ fontSize: u(28) }}>{item.title}</h3>
@@ -171,19 +173,18 @@ export default function WorkDetailPage() {
           <div className="wd-line-v" style={at(1280, 354, 1, 380)} />
           <div className="wd-line" style={at(141, 542, 2279, 1)} />
 
-          {/* 底部原型缩略卡（5 张）*/}
-          <div className="wd-prototypes__track">
-            {d.content.prototypes.map((p, i) => {
-              const x = 140 + i * 461;
-              return (
-                <div className="wd-prototype" key={p} style={at(x, 803, 437, 387)}>
-                  <div className="wd-prototype__media" style={{ height: u(303) }} />
-                  <span className={`wd-prototype__label ${i === 0 ? 'is-active' : ''}`} style={{ fontSize: u(34.4) }}>
-                    {p}
-                  </span>
+          {/* 底部原型缩略条：10 张智慧井盖原型，可横向滚动 */}
+          <div className="wd-prototypes__track" style={at(140, 803, 2281, 387)}>
+            {d.content.prototypes.map((p, i) => (
+              <div className="wd-prototype" key={p.label} style={{ width: u(437), height: u(387) }}>
+                <div className="wd-prototype__media" style={{ height: u(303) }}>
+                  {p.image && <img className="wd-prototype__img" src={p.image} alt={p.label} loading="lazy" />}
                 </div>
-              );
-            })}
+                <span className={`wd-prototype__label ${i === 0 ? 'is-active' : ''}`} style={{ fontSize: u(34.4) }}>
+                  {p.label}
+                </span>
+              </div>
+            ))}
           </div>
 
           {/* 滑动条（131:102） */}

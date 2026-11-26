@@ -50,6 +50,8 @@ export interface WorkCaseCard {
   category: string;
   title: string;
   desc: string;
+  /** 可选封面图，未提供时沿用占位渐变 */
+  cover?: string;
 }
 
 /** 详情页 · 模块地图中的一个模块 */
@@ -65,8 +67,8 @@ export interface WorkDetailContent {
   more: Array<{ title: string; desc: string }>;
   mapTitle: string;
   modules: WorkModule[];
-  /** 底部原型缩略卡 */
-  prototypes: string[];
+  /** 底部原型缩略卡：label 为下方文字，image 为原型截图 */
+  prototypes: Array<{ label: string; image?: string }>;
   prototypeNote: string;
   backLabel: string;
 }
@@ -179,7 +181,12 @@ export const works: Work[] = [
 
       /* 二级页面2 · 项目案例总览（画板 127:29） */
       cases: [
-        { category: '市政设施', title: '智慧井盖监测系统', desc: '井盖状态、报警与工单' },
+        {
+          category: '市政设施',
+          title: '智慧井盖监测系统',
+          desc: '井盖状态、报警与工单',
+          cover: '/images/qiwuyun/manhole/cover.webp'
+        },
         { category: '环境监测', title: '大气网格监测系统', desc: '实况一览、监测排行与数据补录' },
         { category: '能源管理', title: '能源监测系统', desc: '水、电、冷、热、蒸汽计量' },
         { category: '市政设施', title: '消防栓水压监测系统', desc: '水压、网关与区域分组' },
@@ -208,8 +215,19 @@ export const works: Work[] = [
           { no: '06', title: '设备运维', desc: '运维计划、工单、日历与故障处置' },
           { no: '07', title: '系统管理', desc: '网格 / 站点 / 权限 / 报警配置' }
         ],
-        prototypes: ['解决方案首页', '监控大屏', '全局地图', '数据分析', '系统管理'],
-        prototypeNote: '界面原型・20 张，缩略条可左右拖动',
+        prototypes: [
+          { label: '实时数据', image: '/images/qiwuyun/manhole/01.webp' },
+          { label: '设备总览', image: '/images/qiwuyun/manhole/02.webp' },
+          { label: '设备管理', image: '/images/qiwuyun/manhole/03.webp' },
+          { label: '工单管理', image: '/images/qiwuyun/manhole/04.webp' },
+          { label: '报警配置', image: '/images/qiwuyun/manhole/05.webp' },
+          { label: '报警配置・添加', image: '/images/qiwuyun/manhole/06.webp' },
+          { label: '操作日志', image: '/images/qiwuyun/manhole/07.webp' },
+          { label: '角色权限', image: '/images/qiwuyun/manhole/08.webp' },
+          { label: '许可证管理', image: '/images/qiwuyun/manhole/09.webp' },
+          { label: '部门管理', image: '/images/qiwuyun/manhole/10.webp' }
+        ],
+        prototypeNote: '界面原型・10 张，缩略条可左右拖动',
         backLabel: '返回项目列表 ↑'
       }
     }
