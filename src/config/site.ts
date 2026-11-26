@@ -11,13 +11,6 @@ export interface NavItem {
   to: string;
 }
 
-export interface StatItem {
-  value: number;
-  suffix: string;
-  label: string;
-  en: string;
-}
-
 export interface CapabilityItem {
   no: string;
   title: string;
@@ -440,18 +433,6 @@ export const site = {
       tags: ['分镜脚本', '剪辑调色', '成片输出']
     }
   ] satisfies CapabilityDetail[],
-
-  intro: {
-    eyebrow: '03 / 关于这个作品集',
-    title: ['少一点修饰，', '多一点', '真正被记住的东西。'],
-    body:
-      '这里收录品牌、产品与交互相关的实践。每个项目都从问题出发，用清晰的视觉秩序和恰好的动效，把复杂的东西讲简单。作品正在陆续整理上架，先请随便逛逛。',
-    stats: [
-      { value: 8, suffix: '+', label: '年设计与开发经验', en: 'YEARS IN PRACTICE' },
-      { value: 36, suffix: '', label: '个已上线项目', en: 'SHIPPED PROJECTS' },
-      { value: 12, suffix: '', label: '个长期合作品牌', en: 'BRAND PARTNERS' }
-    ] satisfies StatItem[]
-  },
 
   works: {
     eyebrow: '04 / 精选作品',

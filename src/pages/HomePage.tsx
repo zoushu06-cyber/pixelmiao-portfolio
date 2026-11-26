@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/Button';
 import { Marquee } from '@/components/ui/Marquee';
 import { Reveal } from '@/components/motion/Reveal';
 import { BlurText } from '@/components/motion/BlurText';
-import { CountUp } from '@/components/motion/CountUp';
 import CapabilityShowcase from '@/components/works/CapabilityShowcase';
 import Artboard, { at, u } from '@/components/ui/Artboard';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
@@ -278,36 +277,6 @@ export default function HomePage() {
 
       {/* ---------- 03.5 / 能力清单（按即时设计原型连线，加在作品案例下面） ---------- */}
       {isMobile ? <MobileCapabilityList /> : <CapabilityShowcase />}
-
-      {/* ---------- 04 / 介绍 + 数据 ---------- */}
-      <Section id="intro" theme="paper" className="intro" label="关于这个作品集">
-        <div className="u-container">
-          <div className="intro__grid">
-            <div className="intro__left">
-              <span className="u-eyebrow">{site.intro.eyebrow}</span>
-              <BlurText as="h2" lines={site.intro.title} className="u-h2 intro__title" stagger={26} />
-            </div>
-            <Reveal className="intro__right" delay={120}>
-              <p className="u-lead">{site.intro.body}</p>
-              <Button to="/about" variant="outline" className="intro__more">
-                更多关于我
-              </Button>
-            </Reveal>
-          </div>
-
-          <div className="intro__stats">
-            {site.intro.stats.map((stat, i) => (
-              <Reveal className="stat" key={stat.en} delay={i * 110}>
-                <span className="stat__value">
-                  <CountUp to={stat.value} suffix={stat.suffix} />
-                </span>
-                <span className="stat__label">{stat.label}</span>
-                <span className="stat__en u-index">{stat.en}</span>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </Section>
 
       <Marquee items={['BRAND', 'DIGITAL', 'MOTION', 'CODE', 'DETAIL']} className="marquee--dark" />
 

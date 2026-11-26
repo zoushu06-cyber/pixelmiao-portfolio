@@ -552,58 +552,6 @@
   color: var(--case-accent);
 }
 
-/* ---------- 04 / 介绍 + 数据 ---------- */
-.intro__grid {
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  align-items: end;
-  gap: clamp(2rem, 6vw, 7rem);
-}
-.intro__title {
-  margin-top: clamp(1.8rem, 4vw, 3.2rem);
-  font-size: clamp(2.4rem, 5vw, 5.2rem);
-  font-weight: 700;
-  line-height: 1.14;
-  letter-spacing: -0.055em;
-}
-.intro__right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2rem;
-  padding-bottom: 0.5rem;
-}
-.intro__stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1.5rem, 4vw, 4rem);
-  margin-top: clamp(4rem, 10vh, 8rem);
-  padding-top: clamp(2rem, 4vw, 3rem);
-  border-top: 1px solid var(--line);
-}
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-.stat__value {
-  font-size: clamp(3.4rem, 7vw, 7.5rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.075em;
-  font-variant-numeric: tabular-nums;
-}
-.stat:first-child .stat__value {
-  color: var(--accent);
-}
-.stat__label {
-  font-size: clamp(0.85rem, 1.1vw, 1rem);
-  font-weight: 600;
-}
-.stat__en {
-  margin-top: 0.4rem;
-}
-
 /* ---------- 05 / 精选作品 ---------- */
 .works__title {
   font-size: clamp(3rem, 7.6vw, 8.5rem);
@@ -2537,22 +2485,6 @@
   }
   .job__role::before {
     display: none;
-  }
-  .intro__stats {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  .stat {
-    flex-direction: row;
-    align-items: baseline;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-  }
-  .stat__value {
-    font-size: clamp(2.8rem, 12vw, 4.5rem);
-  }
-  .stat__en {
-    margin-left: auto;
   }
   .case-studies__meta {
     flex-direction: column;
