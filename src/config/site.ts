@@ -488,7 +488,7 @@ export const site = {
     eyebrow: '07 / 开始合作',
     title: ['有个想法？', '一起把它', '做出来。'],
     desc: '项目合作、设计咨询，或者只是想打个招呼，都欢迎来信。',
-    email: 'hello@pixelmiao.com',
+    email: '3132891787@qq.com',
     ctaLabel: '写封邮件',
     availability: '目前可接受新项目 · 2027 Q4',
     links: [
