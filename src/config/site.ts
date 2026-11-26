@@ -124,6 +124,14 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/rollup-01.webp',
     '/images/capability-slides/rollup-02.webp',
     '/images/capability-slides/namecard-01.webp'
+  ],
+  // CASE 10 / 软件客户端界面设计：5 张（智慧家居中控 / CRM 数据看板 / 客户列表 / 环境监测平台 / 室内环境大屏）
+  9: [
+    '/images/capability-slides/client-ui-01.webp',
+    '/images/capability-slides/client-ui-02.webp',
+    '/images/capability-slides/client-ui-03.webp',
+    '/images/capability-slides/client-ui-04.webp',
+    '/images/capability-slides/client-ui-05.webp'
   ]
 };
 
