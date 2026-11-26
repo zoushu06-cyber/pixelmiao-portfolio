@@ -23,7 +23,7 @@ export interface FullscreenCarouselHandle {
  * 全屏大图轮播
  * ------------------------------------------------------------------
  * 每隔 interval 毫秒从右向左滑入下一张；鼠标悬停时暂停定时与动画。
- * 只在进入视口后启动，避免 15 屏同时空转。
+ * 只在进入视口后启动，避免 14 屏同时空转。
  * 通过 ref 暴露 next/prev，供画板左右箭头手动左右切换。
  */
 const FullscreenCarousel = forwardRef<FullscreenCarouselHandle, FullscreenCarouselProps>(
