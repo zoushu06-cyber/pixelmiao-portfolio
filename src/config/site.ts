@@ -228,7 +228,7 @@ export const site = {
 
   /** 浏览器标题 / SEO */
   title: 'PIXELMIAO — 数字设计作品集',
-  description: '数字体验、品牌视觉与数字开发作品集。把想象，做成看得见的体验。',
+  description: '数字体验、品牌视觉与数字产品开发作品集。把想象，做成看得见的体验。',
 
   /** 版本号 / 年份，用于角标 */
   year: 2027,
@@ -324,10 +324,10 @@ export const site = {
     title: '作品案例',
     desc: '企物云 15 个子系统、3400+ 屏原型；精优达官网改版前后、23 张设计与原型；冰晟光电的产品 3D 渲染 9 组；品牌物料 6 套节气海报与双语产品页。',
     sign: 'SELECTED WORKS 2026',
-    /** 画板筛选标签（第二项同名是设计稿里的原文，保留） */
+    /** 画板筛选标签（按下方展示内容分类；第二项原为重复的「品牌视觉」，改为「数字产品」） */
     filters: [
       { label: '全部', count: '09' },
-      { label: '品牌视觉', count: '03' },
+      { label: '数字产品', count: '01' },
       { label: '品牌视觉', count: '03' },
       { label: 'UI 界面', count: '02' },
       { label: '动态视觉', count: '01' }
@@ -469,8 +469,8 @@ export const site = {
       },
       {
         no: '04',
-        title: '数字开发',
-        en: 'DIGITAL DEVELOPMENT',
+        title: '数字产品开发',
+        en: 'DIGITAL PRODUCT DEVELOPMENT',
         desc: '把设计稿变成可交互、可上线的数字产品，用代码忠实还原视觉细节与动效。',
         tags: ['React', 'WebGL', '前端工程']
       }

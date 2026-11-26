@@ -1877,7 +1877,7 @@
   border-radius: 31cqw;
   border: 1px solid #272a28;
   color: #c5c8c7;
-  font-weight: 400;
+  font-weight: 300;
   pointer-events: auto;
 }
 .ab-filter.is-active {
@@ -1887,6 +1887,7 @@
 }
 .ab-filter__label {
   line-height: 1;
+  font-weight: 300;
 }
 .ab-filter.is-active .ab-filter__label {
   color: #333333;
