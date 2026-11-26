@@ -183,6 +183,16 @@ export const capabilitySlideOverrides: Record<number, CapabilitySlide[]> = {
       src: '/videos/gobo/3855-gobo-20.mp4',
       poster: '/images/case-videos/gobo-cover.webp',
       label: '3855 内外置 gobo 版 2.0 产品演示'
+    },
+    {
+      src: '/videos/h-besun/track-spotlight-01.mp4',
+      poster: '/images/case-videos/track-spotlight-cover.webp',
+      label: '轨道射灯产品演示'
+    },
+    {
+      src: '/videos/h-besun/w-series-downlight.mp4',
+      poster: '/images/case-videos/w-series-cover.webp',
+      label: 'W 系列酒店筒灯产品演示'
     }
   ]
 };

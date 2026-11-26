@@ -2798,6 +2798,12 @@
   object-fit: cover;
 }
 
+/* 视频完整显示：4:3 等产品演示片不被裁掉上下画面 */
+video.cap-slides__layer {
+  object-fit: contain;
+  background: #0b0c0d;
+}
+
 .cap-slides__layer.is-entering {
   animation: cap-slide-in 0.95s cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
