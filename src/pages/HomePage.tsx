@@ -278,7 +278,31 @@ export default function HomePage() {
       {/* ---------- 03.5 / 能力清单（按即时设计原型连线，加在作品案例下面） ---------- */}
       {isMobile ? <MobileCapabilityList /> : <CapabilityShowcase />}
 
-      <Marquee items={['BRAND', 'DIGITAL', 'MOTION', 'CODE', 'DETAIL']} className="marquee--dark" />
+      {/* 设计工具循环字条：按「精通 → 熟练」顺序整理，缩写展开为通用名称 */}
+      <Marquee
+        items={[
+          'Photoshop',
+          'Illustrator',
+          'Axure RP',
+          'C4D / Octane',
+          'KeyShot',
+          '剪映',
+          'XMind',
+          'CorelDRAW',
+          'InDesign',
+          'Lightroom',
+          'Figma',
+          'MasterGo',
+          'Premiere Pro',
+          'After Effects',
+          'Keynote / PPT',
+          'Codex',
+          'Stable Diffusion',
+          'DeepSeek'
+        ]}
+        duration={64}
+        className="marquee--dark"
+      />
 
       {/* ---------- 06 / 能力范围 ---------- */}
       <Section id="capabilities" theme="dark" className="capabilities" label="能力范围">
