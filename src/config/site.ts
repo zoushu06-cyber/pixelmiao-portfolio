@@ -229,7 +229,7 @@ export const site = {
 
   /** 浏览器标题 / SEO */
   title: 'PIXELMIAO — 数字设计作品集',
-  description: '数字体验、品牌视觉与创意开发作品集。把想象，做成看得见的体验。',
+  description: '数字体验、品牌视觉与数字开发作品集。把想象，做成看得见的体验。',
 
   /** 版本号 / 年份，用于角标 */
   year: 2027,
@@ -456,10 +456,10 @@ export const site = {
       },
       {
         no: '02',
-        title: '数字产品体验',
-        en: 'DIGITAL PRODUCT',
-        desc: '官网、小程序与后台系统，把信息层级、交互与美感收进同一套秩序。',
-        tags: ['Web / App', '设计系统', '用户体验']
+        title: '平面视觉创作',
+        en: 'GRAPHIC VISUAL CREATION',
+        desc: '海报、画册、包装与品牌物料，把信息层级、版式秩序与印刷质感收进同一套视觉语言。',
+        tags: ['海报画册', '版式设计', '印刷物料']
       },
       {
         no: '03',
@@ -470,9 +470,9 @@ export const site = {
       },
       {
         no: '04',
-        title: '创意开发',
-        en: 'CREATIVE DEVELOPMENT',
-        desc: '从设计稿到可上线代码，把视觉细节一比一还原到真实浏览器里。',
+        title: '数字开发',
+        en: 'DIGITAL DEVELOPMENT',
+        desc: '把设计稿变成可交互、可上线的数字产品，用代码忠实还原视觉细节与动效。',
         tags: ['React', 'WebGL', '前端工程']
       }
     ] satisfies CapabilityItem[]
