@@ -63,10 +63,10 @@ export default function WorkDetailPage() {
           <span className="wd-bar__title" style={{ ...at(140, 108, 600, 34), fontSize: u(19.7) }}>
             {d.topbar}
           </span>
-          <span className="wd-bar__hint" style={{ ...at(2007, 107, 190, 34), fontSize: u(19.7) }}>
+          <span className="wd-bar__hint" style={{ ...at(2109, 107, 190, 34), fontSize: u(19.7) }}>
             {d.topbarHint}
           </span>
-          <Link to="/works" className="wd-bar__close" style={at(2223, 89, 105, 60)}>
+          <Link to="/works" className="wd-bar__close" style={at(2315, 89, 105, 60)}>
             <span style={{ fontSize: u(21.4) }}>关闭 ×</span>
           </Link>
           <div className="wd-line" style={at(142, 168, 2278, 1)} />
