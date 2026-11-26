@@ -9,12 +9,28 @@ export function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setVisible(window.scrollY > Math.max(240, window.innerHeight * 0.6));
+    // rAF 节流 + 仅在显隐状态翻转时更新
+    let raf = 0;
+    let last = false;
+    const update = () => {
+      raf = 0;
+      const next = window.scrollY > Math.max(240, window.innerHeight * 0.6);
+      if (next !== last) {
+        last = next;
+        setVisible(next);
+      }
     };
-    onScroll();
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, []);
 
   return (

@@ -40,22 +40,26 @@
   --breakpoint-desktop: 75rem;  /* 1200px */
 }
 
-/* MiSans —— 即时设计稿指定字体，本地自带保证 1:1 字形 */
+/* MiSans —— 即时设计稿指定字体，本地自带保证 1:1 字形
+   子集化 + woff2：只含站点实际用到的字符（~140KB/字重，原 OTF 6.2MB）
+   改动文案后执行 npm run fonts:subset 重新生成（新增字符会自动纳入）
+   子集之外的罕用字会落到系统字体（PingFang / 微软雅黑），不会出现豆腐块
+   更全的 GB2312 版本保留在 public/fonts/*-full.woff2，需要时再加 @font-face 引用 */
 @font-face {
   font-family: 'MiSans';
-  src: url('/fonts/MiSans-Light.otf') format('opentype');
+  src: url('/fonts/MiSans-Light-subset.woff2') format('woff2');
   font-weight: 300;
   font-display: swap;
 }
 @font-face {
   font-family: 'MiSans';
-  src: url('/fonts/MiSans-Regular.otf') format('opentype');
+  src: url('/fonts/MiSans-Regular-subset.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: 'MiSans';
-  src: url('/fonts/MiSans-Medium.otf') format('opentype');
+  src: url('/fonts/MiSans-Medium-subset.woff2') format('woff2');
   font-weight: 500 600;
   font-display: swap;
 }

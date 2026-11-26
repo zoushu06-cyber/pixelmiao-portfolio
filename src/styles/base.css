@@ -160,6 +160,12 @@ video {
   }
 }
 
+/* 路由懒加载占位：深色铺满一屏，避免切换瞬间白闪与布局跳动 */
+.route-fallback {
+  min-height: 100vh;
+  background: var(--ink);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

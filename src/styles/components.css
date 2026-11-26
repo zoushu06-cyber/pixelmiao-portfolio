@@ -356,6 +356,8 @@
   opacity: 1;
   filter: blur(0);
   transform: none;
+  /* 入场结束后释放合成层：每个字符一层常驻会放大内存与合成开销 */
+  will-change: auto;
 }
 
 .shiny-text {

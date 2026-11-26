@@ -25,7 +25,12 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: #0b0c0d url('/images/hero-bg.png') center / 100% 100% no-repeat;
+  background: #0b0c0d url('/images/hero-bg.webp') center / 100% 100% no-repeat;
+  /* 不支持 WebP 时回退到 PNG */
+  background-image: image-set(
+    url('/images/hero-bg.webp') type('image/webp'),
+    url('/images/hero-bg.png') type('image/png')
+  );
 }
 .hero--artboard .hero__inner {
   position: relative;

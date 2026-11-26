@@ -6,6 +6,13 @@
     <meta name="theme-color" content="#0b0b0c" />
     <meta name="description" content="PIXELMIAO — 数字设计与创意作品集。用设计，把想法变成看得见的体验。" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- 首屏关键资源：字体（Regular 正文 / Medium 标题栏）与首屏背景、肖像图，提前并行下载 -->
+    <link rel="preload" href="/fonts/MiSans-Regular-subset.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/MiSans-Medium-subset.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/images/hero-bg.webp" as="image" fetchpriority="high" />
+    <link rel="preload" href="/images/portrait.webp" as="image" />
+
     <title>PIXELMIAO — 数字设计作品集</title>
   </head>
   <body>

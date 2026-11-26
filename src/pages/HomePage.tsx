@@ -78,7 +78,7 @@ export default function HomePage() {
           <span className="hero__portrait-title">{site.hero.portrait.title}</span>
           <div className="hero__portrait-frame">
             <div className="hero__portrait-photo">
-              <img src="/images/portrait.jpg" alt="肖像照" />
+              <img src="/images/portrait.webp" alt="肖像照" decoding="async" />
             </div>
             <dl className="hero__portrait-info">
               <div>
@@ -209,7 +209,7 @@ export default function HomePage() {
                     style={at(140, 598, 1278, 684)}
                     aria-label={`查看「${showcase.title}」详情`}
                   >
-                    <img src={showcase.preview} alt={showcase.title} />
+                    <img src={showcase.preview} alt={showcase.title} loading="lazy" decoding="async" />
                   </Link>
 
                   <div className="ab-case__info">

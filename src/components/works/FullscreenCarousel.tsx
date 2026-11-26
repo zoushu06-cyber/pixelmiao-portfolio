@@ -9,6 +9,8 @@ interface FullscreenCarouselProps {
   onIndexChange?: (index: number) => void;
   /** 是否显示暗色遮罩（默认 true；纯图页可关闭以露出原图） */
   showVeil?: boolean;
+  /** 首屏图片：立即加载并提高优先级；其余默认懒加载 */
+  priority?: boolean;
 }
 
 export interface FullscreenCarouselHandle {
@@ -24,7 +26,7 @@ export interface FullscreenCarouselHandle {
  * 通过 ref 暴露 next/prev，供画板左右箭头手动左右切换。
  */
 const FullscreenCarousel = forwardRef<FullscreenCarouselHandle, FullscreenCarouselProps>(
-  function FullscreenCarousel({ images, interval = 4500, label, onIndexChange, showVeil = true }, ref) {
+  function FullscreenCarousel({ images, interval = 4500, label, onIndexChange, showVeil = true, priority = false }, ref) {
     const rootRef = useRef<HTMLDivElement>(null);
     const [state, setState] = useState<{
       current: number;
@@ -69,6 +71,22 @@ const FullscreenCarousel = forwardRef<FullscreenCarouselHandle, FullscreenCarous
       return () => window.clearInterval(timer);
     }, [paused, inView, images.length, interval]);
 
+    /**
+     * 进入视口后预热下一张：切图时才不会出现空白。
+     * 不预取全部，避免十几屏同时抢占带宽。
+     */
+    useEffect(() => {
+      if (!inView || images.length < 2) return;
+      const nextSrc = images[(state.current + 1) % images.length];
+      if (!nextSrc) return;
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = nextSrc;
+    }, [inView, state.current, images]);
+
+    /** 首屏（第一个可见屏）优先立即加载，其余走原生懒加载 */
+    const eager = priority;
+
     return (
       <div
         ref={rootRef}
@@ -78,13 +96,23 @@ const FullscreenCarousel = forwardRef<FullscreenCarouselHandle, FullscreenCarous
         onMouseLeave={() => setPaused(false)}
       >
         {state.previous !== null && (
-          <img className="cap-slides__layer" src={images[state.previous]} alt="" aria-hidden="true" />
+          <img
+            className="cap-slides__layer"
+            src={images[state.previous]}
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            decoding="async"
+          />
         )}
         <img
           key={`${state.current}-${state.dir}-${state.previous ?? 'init'}`}
           className={`cap-slides__layer ${state.previous !== null ? (state.dir === 'prev' ? 'is-entering-left' : 'is-entering') : ''}`}
           src={images[state.current]}
           alt={label ?? ''}
+          loading={eager ? 'eager' : 'lazy'}
+          fetchPriority={eager ? 'high' : 'auto'}
+          decoding="async"
         />
         {showVeil && <div className="cap-slides__veil" />}
       </div>

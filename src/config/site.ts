@@ -58,63 +58,63 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
   // CASE 01 / 产品包装设计：7 张茶叶包装实拍，顺序按用户给定 01 → 07
   // （三盒 / 四盒 / 芳原茶礼 / 茶语山岚 / 雪夜 / 花溪 / 月麓）
   0: [
-    '/images/capability-slides/tea-package-01.jpg',
-    '/images/capability-slides/tea-package-02.jpg',
-    '/images/capability-slides/tea-package-03.jpg',
-    '/images/capability-slides/tea-package-04.jpg',
-    '/images/capability-slides/tea-package-05.jpg',
-    '/images/capability-slides/tea-package-06.jpg',
-    '/images/capability-slides/tea-package-07.jpg'
+    '/images/capability-slides/tea-package-01.webp',
+    '/images/capability-slides/tea-package-02.webp',
+    '/images/capability-slides/tea-package-03.webp',
+    '/images/capability-slides/tea-package-04.webp',
+    '/images/capability-slides/tea-package-05.webp',
+    '/images/capability-slides/tea-package-06.webp',
+    '/images/capability-slides/tea-package-07.webp'
   ],
   // CASE 02 / 3D 产品渲染：9 张镜头 / 灯具 / 设备渲染图，顺序按用户给定 01 → 09
   // （镜头+滤镜 / 白色设备群 / 蓝色投影 / 手持镜头 / 双镜头+光圈片 / 镜头组+相机 / 爆炸图 / 轨道灯 / 全系合影）
   1: [
-    '/images/capability-slides/3d-render-01.jpg',
-    '/images/capability-slides/3d-render-02.jpg',
-    '/images/capability-slides/3d-render-03.jpg',
-    '/images/capability-slides/3d-render-04.jpg',
-    '/images/capability-slides/3d-render-05.jpg',
-    '/images/capability-slides/3d-render-06.jpg',
-    '/images/capability-slides/3d-render-07.jpg',
-    '/images/capability-slides/3d-render-08.jpg',
-    '/images/capability-slides/3d-render-09.jpg'
+    '/images/capability-slides/3d-render-01.webp',
+    '/images/capability-slides/3d-render-02.webp',
+    '/images/capability-slides/3d-render-03.webp',
+    '/images/capability-slides/3d-render-04.webp',
+    '/images/capability-slides/3d-render-05.webp',
+    '/images/capability-slides/3d-render-06.webp',
+    '/images/capability-slides/3d-render-07.webp',
+    '/images/capability-slides/3d-render-08.webp',
+    '/images/capability-slides/3d-render-09.webp'
   ],
   // CASE 03 / 企业画册、品牌手册：4 张画册样机实拍，顺序按用户给定 01 → 04
   // （防爆画册 2 张 + 产品选型画册 2 张）
   2: [
-    '/images/capability-slides/brochure-01.jpg',
-    '/images/capability-slides/brochure-02.jpg',
-    '/images/capability-slides/brochure-03.jpg',
-    '/images/capability-slides/brochure-04.jpg'
+    '/images/capability-slides/brochure-01.webp',
+    '/images/capability-slides/brochure-02.webp',
+    '/images/capability-slides/brochure-03.webp',
+    '/images/capability-slides/brochure-04.webp'
   ],
   // CASE 04 / 线下专柜、展会展览视觉设计：KEENYODA 展台三视图（画板 17）
-  3: ['/images/capability-slides/exhibition-01.jpg'],
+  3: ['/images/capability-slides/exhibition-01.webp'],
   // CASE 05 / 品牌海报：6 张品牌海报，顺序按用户给定（海报 06 / 01 / 02 / 03 / 04 / 05）
   4: [
-    '/images/capability-slides/brand-poster-01.jpg',
-    '/images/capability-slides/brand-poster-02.jpg',
-    '/images/capability-slides/brand-poster-03.jpg',
-    '/images/capability-slides/brand-poster-04.jpg',
-    '/images/capability-slides/brand-poster-05.jpg',
-    '/images/capability-slides/brand-poster-06.jpg'
+    '/images/capability-slides/brand-poster-01.webp',
+    '/images/capability-slides/brand-poster-02.webp',
+    '/images/capability-slides/brand-poster-03.webp',
+    '/images/capability-slides/brand-poster-04.webp',
+    '/images/capability-slides/brand-poster-05.webp',
+    '/images/capability-slides/brand-poster-06.webp'
   ],
   // CASE 06 / 主题 KV 视觉：会议接待主视觉 3 版（深蓝金 / 红金 / 蓝白）
   5: [
-    '/images/capability-slides/kv-01.jpg',
-    '/images/capability-slides/kv-02.jpg',
-    '/images/capability-slides/kv-03.jpg'
+    '/images/capability-slides/kv-01.webp',
+    '/images/capability-slides/kv-02.webp',
+    '/images/capability-slides/kv-03.webp'
   ],
   // CASE 07 / 字体设计：3 组字形提案（奔赴好时光 / 夏日终章 / 在野生活）
   6: [
-    '/images/capability-slides/type-design-01.jpg',
-    '/images/capability-slides/type-design-02.jpg',
-    '/images/capability-slides/type-design-03.png'
+    '/images/capability-slides/type-design-01.webp',
+    '/images/capability-slides/type-design-02.webp',
+    '/images/capability-slides/type-design-03.webp'
   ],
   // CASE 08 / 电商主图、商品详情页：3 张（接近开关详情页 2 组 + 主图三宫格）
   7: [
-    '/images/capability-slides/ecommerce-01.jpg',
-    '/images/capability-slides/ecommerce-02.jpg',
-    '/images/capability-slides/ecommerce-03.jpg'
+    '/images/capability-slides/ecommerce-01.webp',
+    '/images/capability-slides/ecommerce-02.webp',
+    '/images/capability-slides/ecommerce-03.webp'
   ]
 };
 
@@ -134,18 +134,18 @@ export const caseGallery = {
     tags: ['版式设计', '印前完稿', '1688 详情页']
   },
   images: [
-    '/images/case-gallery/gp-vi-01.jpg',
-    '/images/case-gallery/gp-vi-02.jpg',
-    '/images/case-gallery/gp-vi-03.jpg',
-    '/images/case-gallery/gp-vi-04.jpg',
-    '/images/case-gallery/jy-vi-05-cover.png',
-    '/images/case-gallery/jy-vi-06-preface.jpg',
-    '/images/case-gallery/jy-vi-07-catalog.jpg',
-    '/images/case-gallery/jy-vi-08.jpg',
-    '/images/case-gallery/jy-vi-09.jpg',
-    '/images/case-gallery/jy-vi-10.jpg',
-    '/images/case-gallery/jy-vi-11.jpg',
-    '/images/case-gallery/jy-vi-12.jpg'
+    '/images/case-gallery/gp-vi-01.webp',
+    '/images/case-gallery/gp-vi-02.webp',
+    '/images/case-gallery/gp-vi-03.webp',
+    '/images/case-gallery/gp-vi-04.webp',
+    '/images/case-gallery/jy-vi-05-cover.webp',
+    '/images/case-gallery/jy-vi-06-preface.webp',
+    '/images/case-gallery/jy-vi-07-catalog.webp',
+    '/images/case-gallery/jy-vi-08.webp',
+    '/images/case-gallery/jy-vi-09.webp',
+    '/images/case-gallery/jy-vi-10.webp',
+    '/images/case-gallery/jy-vi-11.webp',
+    '/images/case-gallery/jy-vi-12.webp'
   ]
 };
 

@@ -8,10 +8,26 @@ export function Header() {
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 32);
-    onScroll();
+    // rAF 节流 + 只在跨越阈值时更新，避免每帧都触发一次状态比较
+    let raf = 0;
+    let last = false;
+    const update = () => {
+      raf = 0;
+      const next = window.scrollY > 32;
+      if (next !== last) {
+        last = next;
+        setScrolled(next);
+      }
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
   useEffect(() => {

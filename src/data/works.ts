@@ -122,13 +122,13 @@ export const works: Work[] = [
     role: '项目视觉负责人 / UI 规范 / 原型',
     featured: true,
     accent: '#2f6df6',
-    cover: '/images/qiwuyun-preview.png',
+    cover: '/images/qiwuyun-preview.webp',
     summary: '把一套界面规范复用到 15 个子系统：监测大屏、PC 后台、小程序与官网。',
     tags: ['B 端 UI', '设计规范', '数据可视化', '多端一致'],
 
     /* ---- 首页作品案例卡片（画板 121:109） ---- */
     showcase: {
-      preview: '/images/qiwuyun-preview.png',
+      preview: '/images/qiwuyun-preview.webp',
       title: '企物云・智能化综合平台全案视觉',
       date: '2022.10 — 2023.02',
       desc: '智慧井盖、大气网格监测与智慧能源管理一体化平台，覆盖多端小程序、管理系统与官网。制定统一 UI 视觉规范，独立完成首页、功能页与数据可视化页面设计。',
