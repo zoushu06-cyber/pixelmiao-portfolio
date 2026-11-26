@@ -91,7 +91,7 @@ export const caseGallery = {
     '/images/case-gallery/gp-vi-02.jpg',
     '/images/case-gallery/gp-vi-03.jpg',
     '/images/case-gallery/gp-vi-04.jpg',
-    '/images/case-gallery/jy-vi-05-cover.jpg',
+    '/images/case-gallery/jy-vi-05-cover.png',
     '/images/case-gallery/jy-vi-06-preface.jpg',
     '/images/case-gallery/jy-vi-07-catalog.jpg',
     '/images/case-gallery/jy-vi-08.jpg',
