@@ -133,7 +133,7 @@ export const works: Work[] = [
 
     /* ---- 首页作品案例卡片（画板 121:109） ---- */
     showcase: {
-      preview: '/images/qiwuyun-preview.webp',
+      preview: '/images/qiwuyun-showcase.webp',
       title: '企物云・智能化综合平台全案视觉',
       date: '2022.10 — 2023.02',
       desc: '智慧井盖、大气网格监测与智慧能源管理一体化平台，覆盖多端小程序、管理系统与官网。制定统一 UI 视觉规范，独立完成首页、功能页与数据可视化页面设计。',
