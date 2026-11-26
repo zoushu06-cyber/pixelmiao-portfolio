@@ -1,0 +1,135 @@
+/* ============================================================
+   Tailwind v4 设计 Token —— 全站唯一真源
+   ------------------------------------------------------------
+   色值来自即时设计稿节点反推（稿内未定义本地样式/变量）：
+     首屏 #0B0C0D / 工作经历 #F5F8F7 / 作品案例·详情 #070908
+     强调 #E6A15C · #DEA369 / 次级文字 #969598
+   @theme 同时生成 Tailwind utility（如 bg-board / text-accent-vi）
+   与 CSS 变量（var(--color-*)），供 cqw 坐标层直接引用。
+   ============================================================ */
+@theme {
+  /* 字体 */
+  --font-sans: 'MiSans', 'HarmonyOS Sans SC', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* 数字/英文等原等宽位置统一改用 MiSans，保证全站字体一致（仅 hero 大标题「设计无界」保留幼圆） */
+  --font-mono: 'MiSans', 'HarmonyOS Sans SC', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* 中性色（原变量体系） */
+  --color-ink: #0b0b0c;
+  --color-ink-2: #161618;
+  --color-ink-3: #232326;
+  --color-paper: #f5f5f7;
+  --color-paper-2: #ebebee;
+  --color-white: #ffffff;
+  --color-muted: #86868b;
+  --color-muted-dark: #a1a1a6;
+
+  /* 设计稿反推色（画板 / 强调 / 文字） */
+  --color-board-hero: #0b0c0d;
+  --color-board-work: #f5f8f7;
+  --color-board-case: #070908;
+  --color-accent-vi: #e6a15c;
+  --color-accent-vi-2: #dea369;
+  --color-text-sub: #969598;
+  --color-accent: #ff6900;
+  --color-accent-2: #ff8f42;
+
+  /* 响应式断点：稿内无多端 Frame，按桌面稿反推 */
+  --breakpoint-tablet: 48rem;   /* 768px */
+  --breakpoint-desktop: 75rem;  /* 1200px */
+}
+
+/* MiSans —— 即时设计稿指定字体，本地自带保证 1:1 字形 */
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans-Medium.otf') format('opentype');
+  font-weight: 500 600;
+  font-display: swap;
+}
+
+/* 兼容层：原有 CSS 变量别名 -> @theme token，cqw 坐标层零改动 */
+:root {
+  --ink: var(--color-ink);
+  --ink-2: var(--color-ink-2);
+  --ink-3: var(--color-ink-3);
+  --paper: var(--color-paper);
+  --paper-2: var(--color-paper-2);
+  --white: var(--color-white);
+  --muted: var(--color-muted);
+  --muted-dark: var(--color-muted-dark);
+  --line: rgba(11, 11, 12, 0.09);
+  --line-light: rgba(255, 255, 255, 0.12);
+  --accent: var(--color-accent);
+  --accent-2: var(--color-accent-2);
+
+  /* 语义色（由 section 主题切换） */
+  --bg: var(--white);
+  --fg: var(--ink);
+  --fg-muted: var(--muted);
+  --rule: var(--line);
+
+  /* 字号阶梯（流式） */
+  --fs-hero: clamp(4rem, 11.5vw, 12.5rem);
+  --fs-display: clamp(3rem, 8vw, 8.5rem);
+  --fs-h2: clamp(2.5rem, 5.4vw, 5.5rem);
+  --fs-h3: clamp(1.75rem, 2.8vw, 3rem);
+  --fs-lead: clamp(1.05rem, 1.55vw, 1.5rem);
+  --fs-body: clamp(0.95rem, 1.05vw, 1.0625rem);
+  --fs-label: 0.75rem;
+
+  /* 间距 */
+  --gutter: clamp(1.25rem, 4.4vw, 5.5rem);
+  --section-y: clamp(5rem, 10vh, 9rem);
+  --max-w: 1680px;
+
+  /* 形状 */
+  --radius-sm: 12px;
+  --radius: 22px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+
+  /* 动效 */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur: 0.7s;
+
+  /* 层级 */
+  --z-header: 100;
+  --z-menu: 90;
+  --z-progress: 110;
+}
+
+/* 深色区块：局部反转语义色，组件不用写两套 */
+.theme-dark {
+  --bg: var(--ink);
+  --fg: var(--white);
+  --fg-muted: var(--muted-dark);
+  --rule: var(--line-light);
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.theme-paper {
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --fg-muted: var(--muted);
+  --rule: var(--line);
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.theme-white {
+  --bg: var(--white);
+  --fg: var(--ink);
+  --fg-muted: var(--muted);
+  --rule: var(--line);
+  color: var(--fg);
+  background: var(--bg);
+}

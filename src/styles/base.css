@@ -1,0 +1,174 @@
+@import 'tailwindcss';
+@import './tokens.css';
+@import './components.css';
+@import './pages.css';
+
+/* ---------- reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--ink);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  background: none;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* ---------- 排版工具（Tailwind @apply + 动态 token） ---------- */
+@layer components {
+  .u-container {
+    @apply w-full mx-auto;
+    max-width: var(--max-w);
+    padding-inline: var(--gutter);
+  }
+
+  .u-display {
+    @apply font-bold;
+    font-size: var(--fs-display);
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+  }
+
+  .u-h2 {
+    @apply font-bold;
+    font-size: var(--fs-h2);
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+  }
+
+  .u-lead {
+    font-size: var(--fs-lead);
+    line-height: 1.6;
+    color: var(--fg-muted);
+    letter-spacing: -0.01em;
+  }
+
+  .u-eyebrow {
+    @apply inline-flex items-center uppercase font-medium;
+    gap: 0.7em;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.2em;
+    color: var(--fg-muted);
+  }
+
+  .u-eyebrow::before {
+    content: '';
+    @apply rounded-full shrink-0;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+  }
+
+  .u-index {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.14em;
+    color: var(--fg-muted);
+  }
+
+  .u-accent {
+    color: var(--accent);
+  }
+
+  .u-sr-only {
+    @apply sr-only;
+  }
+
+  .u-no-scroll {
+    @apply overflow-hidden;
+  }
+
+  /* 全屏区块：能全屏就全屏 */
+  .u-full {
+    @apply flex flex-col justify-center relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-block: clamp(6rem, 12vh, 10rem);
+  }
+
+  .u-rule {
+    @apply border-0 m-0;
+    height: 1px;
+    background: var(--rule);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
