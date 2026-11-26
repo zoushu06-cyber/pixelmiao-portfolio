@@ -132,7 +132,9 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/client-ui-03.webp',
     '/images/capability-slides/client-ui-04.webp',
     '/images/capability-slides/client-ui-05.webp'
-  ]
+  ],
+  // CASE 11 / 功能图标、系统图标设计：首页关键图标 / 底部标签图标 / 其他图标三栏总览
+  10: ['/images/capability-slides/icon-design-01.webp']
 };
 
 /**
