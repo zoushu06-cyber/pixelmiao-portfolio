@@ -87,8 +87,12 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/brochure-03.webp',
     '/images/capability-slides/brochure-04.webp'
   ],
-  // CASE 04 / 线下专柜、展会展览视觉设计：KEENYODA 展台三视图（画板 17）
-  3: ['/images/capability-slides/exhibition-01.webp'],
+  // CASE 04 / 展会展览视觉设计：KEENYODA 展台三视图 + BESUN 广交会展厅两版
+  3: [
+    '/images/capability-slides/exhibition-01.webp',
+    '/images/capability-slides/exhibition-02.webp',
+    '/images/capability-slides/exhibition-03.webp'
+  ],
   // CASE 05 / 品牌海报：6 张品牌海报，顺序按用户给定（海报 06 / 01 / 02 / 03 / 04 / 05）
   4: [
     '/images/capability-slides/brand-poster-01.webp',
@@ -311,9 +315,9 @@ export const site = {
     },
     {
       eyebrow: 'CASE 04 / 空间视觉',
-      title: '线下专柜、展会展览视觉设计',
+      title: '展会展览视觉设计',
       sub: '导视・物料・动线',
-      desc: '把品牌从平面延伸到真实空间。围绕人的走动路线安排主视觉与信息节点，让专柜和展台在复杂环境里依然清晰、有记忆点，并成套落地物料。',
+      desc: '把品牌从平面延伸到真实空间。围绕人的走动路线安排主视觉与信息节点，让展台在复杂环境里依然清晰、有记忆点，并成套落地物料。',
       tags: ['展陈视觉', '导视系统', '空间物料']
     },
     {
