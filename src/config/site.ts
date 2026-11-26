@@ -87,11 +87,13 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/brochure-03.webp',
     '/images/capability-slides/brochure-04.webp'
   ],
-  // CASE 04 / 展会展览视觉设计：KEENYODA 展台三视图 + BESUN 广交会展厅两版
+  // CASE 04 / 展会展览视觉设计：KEENYODA 展台三视图 + BESUN 广交会展厅四版
   3: [
     '/images/capability-slides/exhibition-01.webp',
     '/images/capability-slides/exhibition-02.webp',
-    '/images/capability-slides/exhibition-03.webp'
+    '/images/capability-slides/exhibition-03.webp',
+    '/images/capability-slides/exhibition-04.webp',
+    '/images/capability-slides/exhibition-05.webp'
   ],
   // CASE 05 / 品牌海报：6 张品牌海报，顺序按用户给定（海报 06 / 01 / 02 / 03 / 04 / 05）
   4: [
