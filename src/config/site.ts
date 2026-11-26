@@ -40,6 +40,19 @@ export interface CapabilityDetail {
   tags: string[];
 }
 
+/** 视频类素材：沿用旧版官网的两个产品 3D 渲染影片 */
+export interface VideoSlide {
+  src: string;
+  poster: string;
+  label?: string;
+}
+
+/** 能力屏素材：可以是图片路径，也可以是视频（自动播放、可手动控制） */
+export type CapabilitySlide = string | VideoSlide;
+
+export const isVideoSlide = (slide: CapabilitySlide): slide is VideoSlide =>
+  typeof slide !== 'string';
+
 /**
  * 能力每屏对应的全屏大图（目前为占位视觉）。
  * 每一屏取 3 张，后续把这里换成真实项目截图路径即可，无需改组件。
@@ -54,7 +67,7 @@ export const capabilitySlides = [
 ];
 
 /** 指定屏的专属大图（键为 capabilityList 的下标）；未指定的屏使用通用图 */
-export const capabilitySlideOverrides: Record<number, string[]> = {
+export const capabilitySlideOverrides: Record<number, CapabilitySlide[]> = {
   // CASE 01 / 产品包装设计：7 张茶叶包装实拍，顺序按用户给定 01 → 07
   // （三盒 / 四盒 / 芳原茶礼 / 茶语山岚 / 雪夜 / 花溪 / 月麓）
   0: [
@@ -148,6 +161,19 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/data-viz-03.webp',
     '/images/capability-slides/data-viz-04.webp',
     '/images/capability-slides/data-viz-05.webp'
+  ],
+  // 短视频剪辑、产品宣传片：从旧版官网 2.0 原样拷贝的两支产品 3D 渲染影片
+  12: [
+    {
+      src: '/videos/video3855/3855-3d-render.mp4',
+      poster: '/images/case-videos/3855-3d-cover.jpg',
+      label: '3855 产品 3D 渲染视频'
+    },
+    {
+      src: '/videos/video3855-9/lens-family-3d-render.mp4',
+      poster: '/images/case-videos/lens-family-cover.jpg',
+      label: '投影镜头系列 3D 渲染视频'
+    }
   ]
 };
 

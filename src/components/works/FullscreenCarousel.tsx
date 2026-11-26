@@ -1,7 +1,8 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { isVideoSlide, type CapabilitySlide } from '@/config/site';
 
 interface FullscreenCarouselProps {
-  images: string[];
+  images: CapabilitySlide[];
   /** 自动切换间隔（毫秒） */
   interval?: number;
   label?: string;
@@ -35,6 +36,8 @@ const FullscreenCarousel = forwardRef<FullscreenCarouselHandle, FullscreenCarous
     }>({ current: 0, previous: null, dir: 'next' });
     const [paused, setPaused] = useState(false);
     const [inView, setInView] = useState(false);
+    /** 含视频的屏不自动轮播，避免 53 秒影片 4.5 秒就被切走 */
+    const hasVideo = images.some(isVideoSlide);
 
     const step = (dir: 'next' | 'prev') => {
       setState(s => ({
@@ -66,10 +69,10 @@ const FullscreenCarousel = forwardRef<FullscreenCarouselHandle, FullscreenCarous
     }, [state.current, onIndexChange]);
 
     useEffect(() => {
-      if (paused || !inView || images.length < 2) return;
+      if (paused || !inView || hasVideo || images.length < 2) return;
       const timer = window.setInterval(() => step('next'), interval);
       return () => window.clearInterval(timer);
-    }, [paused, inView, images.length, interval]);
+    }, [paused, inView, hasVideo, images.length, interval]);
 
     /**
      * 进入视口后预热下一张：切图时才不会出现空白。
@@ -77,15 +80,51 @@ const FullscreenCarousel = forwardRef<FullscreenCarouselHandle, FullscreenCarous
      */
     useEffect(() => {
       if (!inView || images.length < 2) return;
-      const nextSrc = images[(state.current + 1) % images.length];
-      if (!nextSrc) return;
+      const next = images[(state.current + 1) % images.length];
+      if (!next || isVideoSlide(next)) return;
       const img = new Image();
       img.decoding = 'async';
-      img.src = nextSrc;
+      img.src = next;
     }, [inView, state.current, images]);
 
     /** 首屏（第一个可见屏）优先立即加载，其余走原生懒加载 */
     const eager = priority;
+
+    const renderLayer = (slide: CapabilitySlide, key: string, className: string, hidden = false) => {
+      if (isVideoSlide(slide)) {
+        return (
+          <video
+            key={key}
+            className={className}
+            src={slide.src}
+            poster={slide.poster}
+            aria-label={slide.label ?? label ?? ''}
+            aria-hidden={hidden || undefined}
+            controls
+            autoPlay={!hidden}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            onCanPlay={event => {
+              if (!hidden) void event.currentTarget.play().catch(() => undefined);
+            }}
+          />
+        );
+      }
+      return (
+        <img
+          key={key}
+          className={className}
+          src={slide}
+          alt={hidden ? '' : (label ?? '')}
+          aria-hidden={hidden || undefined}
+          loading={eager ? 'eager' : 'lazy'}
+          fetchPriority={eager ? 'high' : 'auto'}
+          decoding="async"
+        />
+      );
+    };
 
     return (
       <div
@@ -95,25 +134,13 @@ const FullscreenCarousel = forwardRef<FullscreenCarouselHandle, FullscreenCarous
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        {state.previous !== null && (
-          <img
-            className="cap-slides__layer"
-            src={images[state.previous]}
-            alt=""
-            aria-hidden="true"
-            loading="eager"
-            decoding="async"
-          />
+        {state.previous !== null &&
+          renderLayer(images[state.previous], `prev-${state.previous}`, 'cap-slides__layer', true)}
+        {renderLayer(
+          images[state.current],
+          `${state.current}-${state.dir}-${state.previous ?? 'init'}`,
+          `cap-slides__layer ${state.previous !== null ? (state.dir === 'prev' ? 'is-entering-left' : 'is-entering') : ''}`
         )}
-        <img
-          key={`${state.current}-${state.dir}-${state.previous ?? 'init'}`}
-          className={`cap-slides__layer ${state.previous !== null ? (state.dir === 'prev' ? 'is-entering-left' : 'is-entering') : ''}`}
-          src={images[state.current]}
-          alt={label ?? ''}
-          loading={eager ? 'eager' : 'lazy'}
-          fetchPriority={eager ? 'high' : 'auto'}
-          decoding="async"
-        />
         {showVeil && <div className="cap-slides__veil" />}
       </div>
     );
