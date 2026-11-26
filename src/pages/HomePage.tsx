@@ -6,7 +6,7 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Marquee } from '@/components/ui/Marquee';
 import { Reveal } from '@/components/motion/Reveal';
-import { BlurText } from '@/components/motion/BlurText';
+import { ProximityText } from '@/components/motion/ProximityText';
 import CapabilityShowcase from '@/components/works/CapabilityShowcase';
 import Artboard, { at, u } from '@/components/ui/Artboard';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
@@ -45,13 +45,19 @@ export default function HomePage() {
 
           {/* 主视觉：设计（实心）/ 无界（描边） */}
           <div className="hero__center">
-            <BlurText
+            <ProximityText
               as="h1"
               lines={site.hero.lines}
               className="hero__title"
               stagger={80}
               delay={160}
               outlineFrom={site.hero.outlineFrom}
+              radius={130}
+              falloff="gaussian"
+              smoothing={0.28}
+              scale={1.22}
+              lift={0.12}
+              toColor="#e6a15c"
             />
             <Reveal className="hero__intro" delay={420}>
               <p className="hero__sub">{site.hero.sub}</p>

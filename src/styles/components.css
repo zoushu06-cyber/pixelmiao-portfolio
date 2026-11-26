@@ -850,3 +850,15 @@
     gap: 0.8rem 1.5rem;
   }
 }
+
+/* 逐字邻近交互（ProximityText / React Bits VariableProximity 适配版） */
+.proximity-text__char {
+  transform-origin: 50% 80%;
+  backface-visibility: hidden;
+}
+
+/* 逐字邻近交互（ProximityText / React Bits VariableProximity 适配版） */
+.proximity-text__char {
+  transform-origin: 50% 80%;
+  backface-visibility: hidden;
+}
