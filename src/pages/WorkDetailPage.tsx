@@ -73,7 +73,7 @@ export default function WorkDetailPage() {
           <span className="wd-bar__hint" style={{ ...at(2109, 107, 190, 34), fontSize: u(19.7) }}>
             {d.topbarHint}
           </span>
-          <Link to="/works" className="wd-bar__close" style={at(2315, 89, 105, 60)}>
+          <Link to="/" className="wd-bar__close" style={at(2315, 89, 105, 60)}>
             <span style={{ fontSize: u(21.4) }}>关闭 ×</span>
           </Link>
           <div className="wd-line" style={at(142, 168, 2278, 1)} />
@@ -125,7 +125,7 @@ export default function WorkDetailPage() {
             const col = i % 3;
             const row = Math.floor(i / 3);
             const x = 140 + col * 770;
-            const y = 118 + row * 615;
+            const y = 178 + row * 615;
             return (
               <button
                 type="button"
@@ -152,7 +152,7 @@ export default function WorkDetailPage() {
         {/* ===== 画板 3 · 详细内容（127:73）===== */}
         <Artboard className="wd-ab wd-content-ab" label="详细内容" bg="#080a09">
           {/* 原型缩略条：置于顶部，随选中的系统卡片联动切换，可横向滚动 */}
-          <div className="wd-prototypes__track" key={activeCase} style={at(140, 45, 2281, 387)}>
+          <div className="wd-prototypes__track" key={activeCase} style={at(140, 20, 2281, 387)}>
             {prototypes.map((p, i) => (
               <div className="wd-prototype" key={p.label} style={{ width: u(437), height: u(387) }}>
                 <div className="wd-prototype__media" style={{ height: u(303) }}>
@@ -186,14 +186,14 @@ export default function WorkDetailPage() {
           <div className="wd-line" style={at(140, 510, 2279, 1)} />
 
           {/* 模块地图 */}
-          <span className="wd-content__map-title" style={{ ...at(141, 712, 400, 44), fontSize: u(24) }}>
+          <span className="wd-content__map-title" style={{ ...at(141, 832, 400, 44), fontSize: u(24) }}>
             {d.content.mapTitle}
           </span>
           {d.content.modules.map((m, i) => {
             const col = i % 4;
             const row = Math.floor(i / 4);
             const x = 177 + col * 572;
-            const y = 806 + row * 213;
+            const y = 926 + row * 213;
             return (
               <div className="wd-module" key={m.no} style={at(x, y, 380, 150)}>
                 <span className="wd-module__no" style={{ fontSize: u(22) }}>{m.no}</span>
@@ -204,9 +204,9 @@ export default function WorkDetailPage() {
           })}
           {/* 列间竖线 + 中部横线：三条竖线与一条横线构成模块网格 */}
           {[710, 1280, 1850].map(x => (
-            <div className="wd-line-v" key={x} style={at(x, 788, 1, 380)} />
+            <div className="wd-line-v" key={x} style={at(x, 908, 1, 380)} />
           ))}
-          <div className="wd-line" style={at(141, 976, 2279, 1)} />
+          <div className="wd-line" style={at(141, 1096, 2279, 1)} />
         </Artboard>
 
         {/* 下一个项目 */}
