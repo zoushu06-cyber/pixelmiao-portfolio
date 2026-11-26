@@ -129,16 +129,16 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/rollup-02.webp',
     '/images/capability-slides/namecard-01.webp'
   ],
-  // CASE 10 / 软件客户端界面设计：5 张（智慧家居中控 / CRM 数据看板 / 客户列表 / 环境监测平台 / 室内环境大屏）
-  9: [
+  // 图标屏（原 CASE 11）：首页关键图标 / 底部标签图标 / 其他图标三栏总览
+  9: ['/images/capability-slides/icon-design-01.webp'],
+  // 软件客户端界面设计屏：5 张（智慧家居中控 / CRM 数据看板 / 客户列表 / 环境监测平台 / 室内环境大屏）
+  10: [
     '/images/capability-slides/client-ui-01.webp',
     '/images/capability-slides/client-ui-02.webp',
     '/images/capability-slides/client-ui-03.webp',
     '/images/capability-slides/client-ui-04.webp',
     '/images/capability-slides/client-ui-05.webp'
-  ],
-  // CASE 11 / 功能图标、系统图标设计：首页关键图标 / 底部标签图标 / 其他图标三栏总览
-  10: ['/images/capability-slides/icon-design-01.webp']
+  ]
 };
 
 /**
@@ -356,13 +356,6 @@ export const site = {
       tags: ['网页视觉', '线下物料', '跨媒介一致']
     },
     {
-      eyebrow: 'CASE 10 / 桌面端',
-      title: '软件客户端界面设计',
-      sub: '组件・流程・效率',
-      desc: '面向长时间、高频使用的桌面软件，把复杂功能收进清晰的界面秩序。用组件和流程规范降低学习成本，让工具顺手而不是炫目。',
-      tags: ['客户端界面', '组件规范', '操作效率']
-    },
-    {
       eyebrow: 'CASE 11 / 图标',
       title: '功能图标、系统图标设计',
       sub: '语义・网格・统一',
@@ -370,11 +363,11 @@ export const site = {
       tags: ['功能图标', '图标规范', '网格系统']
     },
     {
-      eyebrow: 'CASE 12 / 界面落地',
-      title: '交互界面原型视觉落地',
-      sub: '原型・还原・走查',
-      desc: '从流程草图到高保真界面，再到研发可实现的标注与组件。用原型验证逻辑，用规范保证还原，让最终上线与 design 稿一致。',
-      tags: ['交互原型', '高保真界面', '还原走查']
+      eyebrow: 'CASE 10 / 桌面端',
+      title: '软件客户端界面设计',
+      sub: '组件・流程・效率',
+      desc: '面向长时间、高频使用的桌面软件，把复杂功能收进清晰的界面秩序。用组件和流程规范降低学习成本，让工具顺手而不是炫目。',
+      tags: ['客户端界面', '组件规范', '操作效率']
     },
     {
       eyebrow: 'CASE 13 / 数据',
