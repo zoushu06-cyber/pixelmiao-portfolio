@@ -140,6 +140,14 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/client-ui-03.webp',
     '/images/capability-slides/client-ui-04.webp',
     '/images/capability-slides/client-ui-05.webp'
+  ],
+  // 数据可视化图表设计屏：5 张数据看板（电商运营 / 双11复盘 / Good Data / 早报 / 企业数据分析）
+  11: [
+    '/images/capability-slides/data-viz-01.webp',
+    '/images/capability-slides/data-viz-02.webp',
+    '/images/capability-slides/data-viz-03.webp',
+    '/images/capability-slides/data-viz-04.webp',
+    '/images/capability-slides/data-viz-05.webp'
   ]
 };
 
