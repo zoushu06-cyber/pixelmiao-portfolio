@@ -1,20 +1,16 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { caseGallery } from '@/config/site';
-import Artboard, { at, u } from '@/components/ui/Artboard';
+import Artboard, { at } from '@/components/ui/Artboard';
 import FullscreenCarousel, { type FullscreenCarouselHandle } from '@/components/works/FullscreenCarousel';
 
 /**
  * 作品案例 · 品牌 VI 视觉系统 —— 12 张大图轮播画板
  * ------------------------------------------------------------------
  * 紧接「作品案例」头部画板（含标题栏横条）之后，整屏铺开 12 张 VI 手册大图，
- * 自动从右向左切换、悬停暂停；左右箭头切换本屏大图，右下角显示页码。
+ * 自动从右向左切换、悬停暂停；左右箭头切换本屏大图。
  */
-const TEXT_MUTED = '#969598';
-
 export default function CaseStudyGallery() {
   const carouselRef = useRef<FullscreenCarouselHandle>(null);
-  const [page, setPage] = useState(0);
-  const total = caseGallery.images.length;
 
   const turn = (dir: 'prev' | 'next') => {
     if (dir === 'prev') carouselRef.current?.prev();
@@ -42,7 +38,6 @@ export default function CaseStudyGallery() {
           ref={carouselRef}
           images={caseGallery.images}
           label="品牌 VI 视觉系统大图"
-          onIndexChange={setPage}
           showVeil={false}
         />
 
@@ -65,13 +60,6 @@ export default function CaseStudyGallery() {
         >
           <svg viewBox="0 0 24 48" aria-hidden="true"><path d="M7 3 L19 24 L7 45" /></svg>
         </button>
-
-        <span
-          className="cap-board__counter"
-          style={{ ...at(2220, 1260, 200, 40), fontSize: u(22), color: TEXT_MUTED }}
-        >
-          {String(page + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
-        </span>
       </Artboard>
     </div>
   );

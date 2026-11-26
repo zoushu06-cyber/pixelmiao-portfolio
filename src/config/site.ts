@@ -65,14 +65,9 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/package-6.jpg',
     '/images/capability-slides/package-7.jpg'
   ],
-  // CASE 02 / 企业画册、品牌手册：5 张画册实拍，顺序按用户给定（画板 12 / 13 / 14 / 15 / 16）
+  // CASE 02 / 企业画册、品牌手册：用户提供的高清画册样机画面（6000x3375 原图）
   1: [
-    '/images/capability-slides/brochure-1.jpg',
-    '/images/capability-slides/brochure-2.jpg',
-    '/images/capability-slides/brochure-3.jpg',
-    '/images/capability-slides/brochure-4.jpg',
-    '/images/capability-slides/brochure-5.jpg',
-    '/images/capability-slides/brochure-6.jpg'
+    '/images/capability-slides/brochure-7.png'
   ]
 };
 

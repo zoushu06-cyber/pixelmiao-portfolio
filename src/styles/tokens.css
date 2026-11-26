@@ -43,6 +43,12 @@
 /* MiSans —— 即时设计稿指定字体，本地自带保证 1:1 字形 */
 @font-face {
   font-family: 'MiSans';
+  src: url('/fonts/MiSans-Light.otf') format('opentype');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MiSans';
   src: url('/fonts/MiSans-Regular.otf') format('opentype');
   font-weight: 400;
   font-display: swap;

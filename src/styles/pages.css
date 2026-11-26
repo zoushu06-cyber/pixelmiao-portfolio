@@ -1892,11 +1892,11 @@
   inset: 0;
 }
 
-/* 企物云案例与品牌 VI 标题栏之间：10px 白色通栏缝隙（小米风格区块分隔） */
+/* 企物云案例与品牌 VI 标题栏之间：30px 白色通栏缝隙（小米风格区块分隔） */
 .case-section-gap {
   display: block;
   width: 100%;
-  height: 10px;
+  height: 30px;
   background: #ffffff;
 }
 
@@ -1971,14 +1971,35 @@
   display: block;
   object-fit: fill;
 }
-/* 产品包装设计标题栏模块：黑底 2560×405 原样铺入（含全部文字），画板无阴影与上下留白 */
+/* 产品包装设计标题栏模块：2560×359 浅灰画板，文字由代码渲染（不贴图） */
 .package-title-board {
   box-shadow: none;
 }
-.package-title-board .ab-case__title-bar {
-  inset: 0;
-  width: 100%;
-  height: 100%;
+.package-title-board__tags {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.5859cqw;
+}
+.package-title-board__tags span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.3125cqw;
+  height: 2.1484cqw;
+  padding: 0;
+  border: 1px solid #dddddd;
+  border-radius: 0;
+  font-weight: 300;
+  line-height: 1;
+  white-space: nowrap;
+  color: #666666;
+  text-shadow: none;
+  background: transparent;
+}
+/* 参考标准图：第三个标签「视觉表达」框宽 146，前两个 136 */
+.package-title-board__tags span:last-child {
+  width: 5.7031cqw;
 }
 .ab-case__preview {
   position: absolute;
