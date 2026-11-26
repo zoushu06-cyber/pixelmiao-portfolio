@@ -66,9 +66,13 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
     '/images/capability-slides/tea-package-06.jpg',
     '/images/capability-slides/tea-package-07.jpg'
   ],
-  // CASE 02 / 企业画册、品牌手册：用户提供的高清画册样机画面（6000x3375 原图）
+  // CASE 02 / 企业画册、品牌手册：4 张画册样机实拍，顺序按用户给定 01 → 04
+  // （防爆画册 2 张 + 产品选型画册 2 张）
   1: [
-    '/images/capability-slides/brochure-7.png'
+    '/images/capability-slides/brochure-01.jpg',
+    '/images/capability-slides/brochure-02.jpg',
+    '/images/capability-slides/brochure-03.jpg',
+    '/images/capability-slides/brochure-04.jpg'
   ]
 };
 
