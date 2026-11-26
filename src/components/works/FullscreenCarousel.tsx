@@ -1,4 +1,12 @@
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useLayoutEffect,
+  useRef,
+  useState
+} from 'react';
 import { isVideoSlide, type CapabilitySlide } from '@/config/site';
 
 interface FullscreenCarouselProps {
@@ -22,13 +30,19 @@ export interface FullscreenCarouselHandle {
 /**
  * 全屏大图轮播
  * ------------------------------------------------------------------
- * 每隔 interval 毫秒从右向左滑入下一张；鼠标悬停时暂停定时与动画。
- * 只在进入视口后启动，避免 14 屏同时空转。
- * 通过 ref 暴露 next/prev，供画板左右箭头手动左右切换。
+ * 两张常驻图层（base / incoming）复用 DOM，切换时只改 src 并用
+ * Web Animations API 做 translate3d 位移：全程 GPU 合成、不重排、不重解码。
+ * 鼠标悬停只暂停自动计时，不再暂停手动切换动画。
+ * 进入视口后预解码前后各一张，快速连点也不会出现空白帧。
  */
 const FullscreenCarousel = forwardRef<FullscreenCarouselHandle, FullscreenCarouselProps>(
-  function FullscreenCarousel({ images, interval = 4500, label, onIndexChange, showVeil = true, priority = false }, ref) {
+  function FullscreenCarousel(
+    { images, interval = 4500, label, onIndexChange, showVeil = true, priority = false },
+    ref
+  ) {
     const rootRef = useRef<HTMLDivElement>(null);
+    const incomingRef = useRef<HTMLImageElement & HTMLVideoElement>(null);
+    const animationRef = useRef<Animation | null>(null);
     const [state, setState] = useState<{
       current: number;
       previous: number | null;
@@ -39,18 +53,18 @@ const FullscreenCarousel = forwardRef<FullscreenCarouselHandle, FullscreenCarous
     /** 含视频的屏不自动轮播，避免 53 秒影片 4.5 秒就被切走 */
     const hasVideo = images.some(isVideoSlide);
 
-    const step = (dir: 'next' | 'prev') => {
-      setState(s => ({
-        previous: s.current,
-        current: ((s.current + (dir === 'next' ? 1 : -1)) % images.length + images.length) % images.length,
-        dir
-      }));
-    };
+    const step = useCallback(
+      (dir: 'next' | 'prev') => {
+        setState(s => ({
+          previous: s.current,
+          current: ((s.current + (dir === 'next' ? 1 : -1)) % images.length + images.length) % images.length,
+          dir
+        }));
+      },
+      [images.length]
+    );
 
-    useImperativeHandle(ref, () => ({
-      next: () => step('next'),
-      prev: () => step('prev')
-    }));
+    useImperativeHandle(ref, () => ({ next: () => step('next'), prev: () => step('prev') }), [step]);
 
     useEffect(() => {
       const node = rootRef.current;
@@ -72,56 +86,84 @@ const FullscreenCarousel = forwardRef<FullscreenCarouselHandle, FullscreenCarous
       if (paused || !inView || hasVideo || images.length < 2) return;
       const timer = window.setInterval(() => step('next'), interval);
       return () => window.clearInterval(timer);
-    }, [paused, inView, hasVideo, images.length, interval]);
+    }, [paused, inView, hasVideo, images.length, interval, step]);
 
     /**
-     * 进入视口后预热下一张：切图时才不会出现空白。
-     * 不预取全部，避免十几屏同时抢占带宽。
+     * 进入视口后预热并解码前后各一张：切换时图层只是复用已解码的位图，
+     * 不会因 img 重新挂载而出现解码等待或白帧。
      */
     useEffect(() => {
       if (!inView || images.length < 2) return;
-      const next = images[(state.current + 1) % images.length];
-      if (!next || isVideoSlide(next)) return;
-      const img = new Image();
-      img.decoding = 'async';
-      img.src = next;
+      const warm = (slide: CapabilitySlide | undefined) => {
+        if (!slide || isVideoSlide(slide)) return;
+        const img = new Image();
+        img.decoding = 'async';
+        img.src = slide;
+        void img.decode?.().catch(() => undefined);
+      };
+      warm(images[(state.current + 1) % images.length]);
+      warm(images[(state.current - 1 + images.length) % images.length]);
     }, [inView, state.current, images]);
+
+    /**
+     * 图层 DOM 恒定，只换 src；用 WAAPI 直接跑合成层动画。
+     * 每次点击都重新起一次动画，快速连点会顺势从当前方向继续，不会卡在半途。
+     */
+    useLayoutEffect(() => {
+      if (state.previous === null || !incomingRef.current) return;
+      animationRef.current?.cancel();
+      // 下一张：新图从右侧进入；上一张：新图从左侧进入
+      const offset = state.dir === 'prev' ? '-100%' : '100%';
+      animationRef.current = incomingRef.current.animate(
+        [
+          { transform: `translate3d(${offset}, 0, 0)` },
+          { transform: 'translate3d(0, 0, 0)' }
+        ],
+        { duration: 520, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'both' }
+      );
+    }, [state.current, state.dir, state.previous]);
+
+    useEffect(() => () => animationRef.current?.cancel(), []);
 
     /** 首屏（第一个可见屏）优先立即加载，其余走原生懒加载 */
     const eager = priority;
 
-    const renderLayer = (slide: CapabilitySlide, key: string, className: string, hidden = false) => {
+    const renderLayer = (
+      slide: CapabilitySlide,
+      key: string,
+      className: string,
+      layerRef?: React.Ref<HTMLImageElement & HTMLVideoElement>
+    ) => {
       if (isVideoSlide(slide)) {
         return (
           <video
             key={key}
+            ref={layerRef as React.Ref<HTMLVideoElement>}
             className={className}
             src={slide.src}
             poster={slide.poster}
-            aria-label={slide.label ?? label ?? ''}
-            aria-hidden={hidden || undefined}
+            aria-label={label ?? ''}
             controls
-            autoPlay={!hidden}
+            autoPlay
             muted
             loop
             playsInline
             preload="metadata"
-            onCanPlay={event => {
-              if (!hidden) void event.currentTarget.play().catch(() => undefined);
-            }}
+            onCanPlay={event => void event.currentTarget.play().catch(() => undefined)}
           />
         );
       }
       return (
         <img
           key={key}
+          ref={layerRef as React.Ref<HTMLImageElement>}
           className={className}
           src={slide}
-          alt={hidden ? '' : (label ?? '')}
-          aria-hidden={hidden || undefined}
+          alt={label ?? ''}
           loading={eager ? 'eager' : 'lazy'}
           fetchPriority={eager ? 'high' : 'auto'}
           decoding="async"
+          draggable={false}
         />
       );
     };
@@ -135,11 +177,12 @@ const FullscreenCarousel = forwardRef<FullscreenCarouselHandle, FullscreenCarous
         onMouseLeave={() => setPaused(false)}
       >
         {state.previous !== null &&
-          renderLayer(images[state.previous], `prev-${state.previous}`, 'cap-slides__layer', true)}
+          renderLayer(images[state.previous], 'base', 'cap-slides__layer cap-slides__layer--base')}
         {renderLayer(
           images[state.current],
-          `${state.current}-${state.dir}-${state.previous ?? 'init'}`,
-          `cap-slides__layer ${state.previous !== null ? (state.dir === 'prev' ? 'is-entering-left' : 'is-entering') : ''}`
+          'incoming',
+          'cap-slides__layer cap-slides__layer--incoming',
+          incomingRef
         )}
         {showVeil && <div className="cap-slides__veil" />}
       </div>

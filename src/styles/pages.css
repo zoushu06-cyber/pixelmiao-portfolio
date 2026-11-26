@@ -2761,25 +2761,23 @@
   height: 100%;
   display: block;
   object-fit: cover;
+  /* 常驻合成层：切换只改 src 与 transform，不触发重排 */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  pointer-events: none;
+}
+.cap-slides__layer--base {
+  z-index: 1;
+}
+.cap-slides__layer--incoming {
+  z-index: 2;
 }
 
 /* 视频完整显示：4:3 等产品演示片不被裁掉上下画面 */
 video.cap-slides__layer {
   object-fit: contain;
   background: #0b0c0d;
-}
-
-.cap-slides__layer.is-entering {
-  animation: cap-slide-in 0.95s cubic-bezier(0.22, 0.61, 0.36, 1) both;
-}
-
-.cap-slides:hover .cap-slides__layer.is-entering {
-  animation-play-state: paused;
-}
-
-@keyframes cap-slide-in {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
 }
 
 /* 暗色遮罩，保证设计稿文字在大图上依然清晰可读 */
@@ -2906,20 +2904,6 @@ video.cap-slides__layer {
   .cap-show__stage--prev {
     animation: none;
   }
-}
-
-/* 手动点左箭头：新图从左侧滑入 */
-.cap-slides__layer.is-entering-left {
-  animation: cap-slide-in-left 0.95s cubic-bezier(0.22, 0.61, 0.36, 1) both;
-}
-
-.cap-slides:hover .cap-slides__layer.is-entering-left {
-  animation-play-state: paused;
-}
-
-@keyframes cap-slide-in-left {
-  from { transform: translateX(-100%); }
-  to   { transform: translateX(0); }
 }
 
 /* ============================================================
