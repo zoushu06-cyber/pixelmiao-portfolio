@@ -2011,15 +2011,15 @@
   position: absolute;
   display: flex;
   align-items: center;
-  gap: 0.5859cqw;
+  gap: 0.4688cqw;
 }
 .cap-title-board__tags span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 5.3125cqw;
-  height: 2.1484cqw;
-  padding: 0 0.9cqw;
+  min-width: 4.2578cqw;
+  height: 1.7188cqw;
+  padding: 0 0.5859cqw;
   border: 1px solid #dddddd;
   border-radius: 0;
   font-weight: 300;

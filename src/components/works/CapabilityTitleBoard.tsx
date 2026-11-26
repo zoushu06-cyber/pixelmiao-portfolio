@@ -78,9 +78,9 @@ export default function CapabilityTitleBoard({
       >
         {desc}
       </p>
-      <div className="cap-title-board__tags" style={at(1717.93, 242.79, 448, 55)}>
+      <div className="cap-title-board__tags" style={at(1717.93, 248.29, 400, 44)}>
         {tags.map(tag => (
-          <span key={tag} style={{ fontSize: u(25) }}>
+          <span key={tag} style={{ fontSize: u(20) }}>
             {tag}
           </span>
         ))}
