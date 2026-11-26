@@ -2006,7 +2006,7 @@
   pointer-events: auto;
 }
 .ab-case__info-title {
-  font-weight: 500;
+  font-weight: 400;
   color: #ffffff;
   white-space: nowrap;
 }
@@ -2017,7 +2017,7 @@
 }
 .ab-case__info-desc {
   color: #969599;
-  font-weight: 500;
+  font-weight: 400;
   /* 参考图 3 行文字基线间距约 37px（27px 字号）→ 行高约 1.85 */
   line-height: 1.85;
   margin: 0;
@@ -2036,7 +2036,7 @@
   border-radius: 2px;
   background: #191b1a;
   color: #979697;
-  font-weight: 500;
+  font-weight: 400;
   pointer-events: auto;
 }
 .ab-case__stats {
@@ -2053,19 +2053,19 @@
 }
 .ab-case__stat strong {
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1;
 }
 .ab-case__stat span {
   color: #979697;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1;
   white-space: nowrap;
 }
 .ab-case__live {
   position: absolute;
   color: #d75b02;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 0.18em;
   white-space: nowrap;
@@ -2073,7 +2073,7 @@
 .ab-case__detail-link {
   position: absolute;
   color: #959793;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 0.22em;
   white-space: nowrap;

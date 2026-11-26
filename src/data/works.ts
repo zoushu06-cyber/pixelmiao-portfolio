@@ -143,7 +143,7 @@ export const works: Work[] = [
         { value: '98%', label: '视觉还原' },
         { value: '3端', label: '小程序 / 管理 / 官网' }
       ],
-      live: { text: '已上线・qiwuiot.com ↗', url: 'https://qiwuiot.com' },
+      live: { text: '已上线・qiwuiot.com ↗', url: 'http://qiwuiot.com' },
       detailText: '系统详情：大气网格・许可证・CRM 与自动化测试・可视化 →'
     },
 
