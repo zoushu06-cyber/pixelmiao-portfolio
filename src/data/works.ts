@@ -284,7 +284,30 @@ export const works: Work[] = [
           ],
           prototypeNote: '界面原型・7 张，点击卡片切换系统，缩略条可左右拖动'
         },
-        { category: '研发工具', title: '自动化测试平台', desc: '用例管理、接口自动化测试与报告分析' }
+        {
+          category: '研发工具',
+          title: '自动化测试平台',
+          desc: '用例管理、接口自动化测试与报告分析',
+          cover: '/images/qiwuyun/auto/cover.webp',
+          prototypes: [
+            { label: '标定流程', image: '/images/qiwuyun/auto/calib-flow.webp' },
+            { label: '标定流程・1', image: '/images/qiwuyun/auto/calib-flow-1.webp' },
+            { label: '标定流程・2', image: '/images/qiwuyun/auto/calib-flow-2.webp' },
+            { label: '测试流程图', image: '/images/qiwuyun/auto/workflow.webp' },
+            { label: '万用表模板', image: '/images/qiwuyun/auto/multimeter-tpl.webp' },
+            { label: '产品标定模板', image: '/images/qiwuyun/auto/product-tpl.webp' },
+            { label: '单测量模式案例', image: '/images/qiwuyun/auto/single-measure.webp' },
+            { label: '单测量模式案例・1', image: '/images/qiwuyun/auto/single-measure-1.webp' },
+            { label: '测试记录详情', image: '/images/qiwuyun/auto/test-record.webp' },
+            { label: '选择测试模板', image: '/images/qiwuyun/auto/select-tpl-2.webp' },
+            { label: '设备测试', image: '/images/qiwuyun/auto/device-test.webp' },
+            { label: '添加模板', image: '/images/qiwuyun/auto/add-tpl.webp' },
+            { label: '添加模板・1', image: '/images/qiwuyun/auto/add-tpl-1.webp' },
+            { label: '添加模板・2', image: '/images/qiwuyun/auto/add-tpl-2.webp' },
+            { label: '通讯参数', image: '/images/qiwuyun/auto/comm-params.webp' }
+          ],
+          prototypeNote: '界面原型・15 张，点击卡片切换系统，缩略条可左右拖动'
+        }
       ],
 
       /* 二级页面3 · 详细内容（画板 127:73）—— 逐字对齐设计稿节点 */
