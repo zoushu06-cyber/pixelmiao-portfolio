@@ -173,6 +173,11 @@ export const capabilitySlideOverrides: Record<number, CapabilitySlide[]> = {
       src: '/videos/video3855-9/lens-family-3d-render.mp4',
       poster: '/images/case-videos/lens-family-cover.jpg',
       label: '投影镜头系列 3D 渲染视频'
+    },
+    {
+      src: '/videos/microled/kp-series-microled.mp4',
+      poster: '/images/case-videos/microled-cover.webp',
+      label: 'KP Series Micro-LED 投影镜头宣传片'
     }
   ]
 };
