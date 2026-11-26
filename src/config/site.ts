@@ -78,7 +78,7 @@ export const capabilitySlideOverrides: Record<number, string[]> = {
  * 顺序严格按用户提供：光鹏装饰 01-04 → 精优达 封面/前言/目录/目录(1)-(5)。
  */
 export const caseGallery = {
-  titleBar: '/images/case-gallery/vi-title-bar.jpg',
+  /** 标题栏文案：与能力清单同一模板，由代码渲染（早期图片贴图 vi-title-bar.jpg 已弃用） */
   titleBarText: {
     eyebrow: 'CASE 06 / 平面落地',
     title: '品牌 VI 视觉系统',

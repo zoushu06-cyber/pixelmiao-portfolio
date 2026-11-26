@@ -2,12 +2,13 @@ import { useRef } from 'react';
 import { caseGallery } from '@/config/site';
 import Artboard, { at } from '@/components/ui/Artboard';
 import FullscreenCarousel, { type FullscreenCarouselHandle } from '@/components/works/FullscreenCarousel';
+import CapabilityTitleBoard from '@/components/works/CapabilityTitleBoard';
 
 /**
- * 作品案例 · 品牌 VI 视觉系统 —— 12 张大图轮播画板
+ * 作品案例 · 品牌 VI 视觉系统 —— 与能力清单同一模板
  * ------------------------------------------------------------------
- * 紧接「作品案例」头部画板（含标题栏横条）之后，整屏铺开 12 张 VI 手册大图，
- * 自动从右向左切换、悬停暂停；左右箭头切换本屏大图。
+ * 浅灰标题栏（2560×359，代码渲染）→ 整屏大图（2560×1440，12 张 VI 手册轮播）。
+ * 文字不叠在图片上；自动从右向左切换、悬停暂停，左右箭头切换本屏大图。
  */
 export default function CaseStudyGallery() {
   const carouselRef = useRef<FullscreenCarouselHandle>(null);
@@ -19,19 +20,14 @@ export default function CaseStudyGallery() {
 
   return (
     <div className="case-gallery__image-frame">
-      {/* 品牌 VI 视觉系统标题栏（矮画板 2560×480，压缩标签下方空白；图片保持原位，底部多余留白由画板裁切） */}
-      <Artboard
-        className="case-gallery__title-board"
+      <CapabilityTitleBoard
+        eyebrow={caseGallery.titleBarText.eyebrow}
+        title={caseGallery.titleBarText.title}
+        sub={caseGallery.titleBarText.sub}
+        desc={caseGallery.titleBarText.desc}
+        tags={caseGallery.titleBarText.tags}
         label="品牌 VI 视觉系统 标题栏"
-        style={{ aspectRatio: '2560 / 480' }}
-      >
-        <img
-          className="ab-case__title-bar"
-          src={caseGallery.titleBar}
-          alt="品牌 VI 视觉系统 · CASE 06 平面落地 · 版式・印前・电商"
-          style={at(140, 60, 2280, 450)}
-        />
-      </Artboard>
+      />
 
       <Artboard className="case-gallery__image-board" label="品牌 VI 视觉系统 大图">
         <FullscreenCarousel

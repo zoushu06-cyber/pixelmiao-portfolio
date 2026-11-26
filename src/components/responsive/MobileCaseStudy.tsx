@@ -79,15 +79,21 @@ export default function MobileCaseStudy() {
       {/* 企物云与品牌 VI 标题栏之间：10px 白色通栏缝隙 */}
       <div className="case-section-gap" aria-hidden="true" />
 
-      {/* 品牌 VI 标题栏（图1 原样） */}
-      <img
-        className="block w-full h-auto"
-        src={caseGallery.titleBar}
-        alt="品牌 VI 视觉系统 · CASE 06 平面落地 · 版式・印前・电商"
-      />
+      {/* 品牌 VI 标题栏：与能力清单同一模板，文字由代码渲染（不贴图） */}
+      <div className="bg-[#f5f5f5] px-5 py-8">
+        <span className="font-mono text-xs tracking-widest text-[#999999]">{caseGallery.titleBarText.eyebrow}</span>
+        <h3 className="mt-4 text-[7.5vw] leading-tight font-medium tracking-tight text-[#010101]">{caseGallery.titleBarText.title}</h3>
+        <span className="mt-3 block text-sm text-[#d97630]">{caseGallery.titleBarText.sub}</span>
+        <p className="mt-6 text-xs leading-6 text-[#666666]">{caseGallery.titleBarText.desc}</p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {caseGallery.titleBarText.tags.map(tag => (
+            <span key={tag} className="border border-[#dddddd] px-4 py-2 text-xs font-light text-[#666666]">{tag}</span>
+          ))}
+        </div>
+      </div>
 
       {/* 12 张大图轮播：16:9 容器 + 左右箭头 */}
-      <div className="relative mt-4 aspect-video w-full overflow-hidden bg-board-case" style={{ containerType: 'inline-size' }}>
+      <div className="relative aspect-video w-full overflow-hidden bg-board-case" style={{ containerType: 'inline-size' }}>
         <FullscreenCarousel
           ref={carouselRef}
           images={caseGallery.images}

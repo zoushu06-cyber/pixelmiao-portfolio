@@ -1971,23 +1971,55 @@
   display: block;
   object-fit: fill;
 }
-/* 产品包装设计标题栏模块：2560×359 浅灰画板，文字由代码渲染（不贴图） */
-.package-title-board {
+/* 全站统一标题栏模块：2560×359 浅灰画板，文字全部由代码渲染（不贴图） */
+.cap-title-board {
   box-shadow: none;
 }
-.package-title-board__tags {
+.cap-title-board__eyebrow,
+.cap-title-board__title,
+.cap-title-board__sub,
+.cap-title-board__desc {
+  position: absolute;
+  display: block;
+  margin: 0;
+  text-shadow: none;
+}
+.cap-title-board__eyebrow {
+  font-weight: 300;
+  color: #999999;
+  white-space: nowrap;
+}
+.cap-title-board__title {
+  font-weight: 500;
+  color: #010101;
+  white-space: nowrap;
+}
+.cap-title-board__sub {
+  font-weight: 300;
+  color: #d97630;
+  white-space: nowrap;
+}
+.cap-title-board__desc {
+  font-weight: 300;
+  color: #666666;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.cap-title-board__tags {
   position: absolute;
   display: flex;
   align-items: center;
   gap: 0.5859cqw;
 }
-.package-title-board__tags span {
+.cap-title-board__tags span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 5.3125cqw;
+  min-width: 5.3125cqw;
   height: 2.1484cqw;
-  padding: 0;
+  padding: 0 0.9cqw;
   border: 1px solid #dddddd;
   border-radius: 0;
   font-weight: 300;
@@ -1996,10 +2028,6 @@
   color: #666666;
   text-shadow: none;
   background: transparent;
-}
-/* 参考标准图：第三个标签「视觉表达」框宽 146，前两个 136 */
-.package-title-board__tags span:last-child {
-  width: 5.7031cqw;
 }
 .ab-case__preview {
   position: absolute;
@@ -2626,7 +2654,8 @@
 .cap-show__frames {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.5rem, 4vh, 4rem);
+  /* 统一模板：屏与屏之间只靠 30px 白色通栏分隔，不再叠加深色空隙 */
+  gap: 0;
 }
 
 .cap-show__frame {
