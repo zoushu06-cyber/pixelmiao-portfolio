@@ -19,20 +19,13 @@
   padding: 0;
   background: #0b0c0d;
 }
+/* 首屏背景：2560×1440 设计图（底色 #0B0C0D / 右侧栏 #0E0F10 / 顶部暖灰渐变），
+   按 100% 100% 拉伸铺满，图内 66.2% 处的分栏线始终与栅格分栏对齐，不裁切。 */
 .hero--artboard .hero__bg {
   position: absolute;
   inset: 0;
   pointer-events: none;
-}
-/* 左上暖灰线性渐变（画板 116:6：1694×655） */
-.hero--artboard .hero__grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 66.2%;
-  height: 45.5%;
-  background: linear-gradient(155deg, #1f1b16 0%, #0b0c0d 100%);
-  opacity: 0.9;
+  background: #0b0c0d url('/images/hero-bg.png') center / 100% 100% no-repeat;
 }
 .hero--artboard .hero__inner {
   position: relative;
@@ -190,7 +183,8 @@
   display: flex;
   flex-direction: column;
   padding: clamp(3rem, 6.4vh, 5rem) clamp(1.5rem, 3.4vw, 3.5rem) clamp(1.6rem, 4vh, 3rem);
-  background: #0e0f10;
+  /* 右侧栏底色与顶部暖光已包含在首屏背景图内，面板留空避免二次叠加 */
+  background: transparent;
 }
 .hero__portrait::before {
   content: '';
@@ -199,6 +193,7 @@
   height: 66.5%;
   background: radial-gradient(ellipse at 55% 38%, #332821 0%, #0e0f10 72%);
   pointer-events: none;
+  display: none;
 }
 .hero__portrait-title {
   position: relative;
@@ -2468,7 +2463,7 @@
     border-left: 0;
   }
   .hero--artboard.u-full {
-    grid-template-columns: minmax(0, 63%) minmax(0, 37%);
+    grid-template-columns: minmax(0, 66.2%) minmax(0, 33.8%);
   }
   .hero__title {
     font-size: clamp(3.6rem, 13vw, 8rem);
@@ -2484,9 +2479,12 @@
     flex-direction: column;
     padding-top: 0;
   }
-  .hero--artboard .hero__grid {
-    width: 100%;
-    height: 40%;
+  /* 移动端单列堆叠：背景图内的竖向分栏线失去意义，
+     改用与左栏同调的渐变铺在顶部，右栏恢复自己的底色与暖光 */
+  .hero--artboard .hero__bg {
+    background-image: linear-gradient(155deg, #1f1b16 0%, #0b0c0d 55%);
+    background-size: 100% 45%;
+    background-repeat: no-repeat;
   }
   .hero--artboard .hero__inner {
     min-height: auto;
@@ -2508,6 +2506,11 @@
   .hero__portrait {
     min-height: auto;
     padding: 2.5rem var(--gutter);
+    background: #0e0f10;
+  }
+  .hero__portrait::before {
+    display: block;
+    height: 100%;
   }
   .hero__portrait-photo {
     max-width: 260px;

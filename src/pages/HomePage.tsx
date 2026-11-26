@@ -24,9 +24,7 @@ export default function HomePage() {
     <>
       {/* ---------- 01 / 首屏（对照即时设计「作品集-2017 / 首屏」画板） ---------- */}
       <Section id="top" theme="dark" className="hero hero--artboard" label="首页首屏">
-        <div className="hero__bg" aria-hidden="true">
-          <div className="hero__grid" />
-        </div>
+        <div className="hero__bg" aria-hidden="true" />
 
         <div className="u-container hero__inner">
           {/* 顶栏（画板 114:16–114:22）：邹术 Joe / 资深视觉设计师 / UI / UX / 8 年经验 */}
